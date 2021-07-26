@@ -16,6 +16,8 @@ namespace InventoryManagement
         {
             InitializeComponent();
             customizeDesign();
+           
+           
         }
 
         private void customizeDesign()

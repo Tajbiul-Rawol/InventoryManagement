@@ -41,9 +41,13 @@ namespace InventoryManagement
             this.allUsersBtn = new System.Windows.Forms.Button();
             this.manageUsersBtn = new System.Windows.Forms.Button();
             this.metroSetPanel2 = new MetroSet_UI.Controls.MetroSetPanel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.metroSetPanel1.SuspendLayout();
             this.InventoryPanelSubMenu.SuspendLayout();
             this.manageUsersPanelSubMenu.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroSetPanel1
@@ -230,17 +234,49 @@ namespace InventoryManagement
             this.metroSetPanel2.ThemeAuthor = "Narwin";
             this.metroSetPanel2.ThemeName = "MetroLite";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(174, 13);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(740, 332);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(732, 304);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(732, 304);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 370);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.metroSetPanel1);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.metroSetPanel1.ResumeLayout(false);
             this.InventoryPanelSubMenu.ResumeLayout(false);
             this.manageUsersPanelSubMenu.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -259,5 +295,8 @@ namespace InventoryManagement
         private System.Windows.Forms.Button usersPermissionBtn;
         private System.Windows.Forms.Button allUsersBtn;
         private System.Windows.Forms.Button manageUsersBtn;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
