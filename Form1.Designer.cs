@@ -36,6 +36,7 @@ namespace InventoryManagement
             this.userNameTextBox = new MetroSet_UI.Controls.MetroSetTextBox();
             this.passwordTextBox = new MetroSet_UI.Controls.MetroSetTextBox();
             this.showPasswordCheckbox = new MetroSet_UI.Controls.MetroSetCheckBox();
+            this.clearLabel = new MetroSet_UI.Controls.MetroSetLabel();
             this.SuspendLayout();
             // 
             // metroSetButton1
@@ -69,10 +70,10 @@ namespace InventoryManagement
             // 
             this.userNameLabel.Font = new System.Drawing.Font("Segoe WP Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.userNameLabel.IsDerivedStyle = true;
-            this.userNameLabel.Location = new System.Drawing.Point(20, 116);
+            this.userNameLabel.Location = new System.Drawing.Point(71, 116);
             this.userNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(133, 25);
+            this.userNameLabel.Size = new System.Drawing.Size(82, 25);
             this.userNameLabel.Style = MetroSet_UI.Enums.Style.Light;
             this.userNameLabel.StyleManager = null;
             this.userNameLabel.TabIndex = 6;
@@ -84,10 +85,10 @@ namespace InventoryManagement
             // 
             this.passwordLabel.Font = new System.Drawing.Font("Segoe WP Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.passwordLabel.IsDerivedStyle = true;
-            this.passwordLabel.Location = new System.Drawing.Point(20, 187);
+            this.passwordLabel.Location = new System.Drawing.Point(71, 187);
             this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(133, 25);
+            this.passwordLabel.Size = new System.Drawing.Size(82, 25);
             this.passwordLabel.Style = MetroSet_UI.Enums.Style.Light;
             this.passwordLabel.StyleManager = null;
             this.passwordLabel.TabIndex = 7;
@@ -165,10 +166,10 @@ namespace InventoryManagement
             this.showPasswordCheckbox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             this.showPasswordCheckbox.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.showPasswordCheckbox.IsDerivedStyle = true;
-            this.showPasswordCheckbox.Location = new System.Drawing.Point(170, 233);
+            this.showPasswordCheckbox.Location = new System.Drawing.Point(270, 328);
             this.showPasswordCheckbox.Name = "showPasswordCheckbox";
             this.showPasswordCheckbox.SignStyle = MetroSet_UI.Enums.SignStyle.Sign;
-            this.showPasswordCheckbox.Size = new System.Drawing.Size(167, 16);
+            this.showPasswordCheckbox.Size = new System.Drawing.Size(150, 16);
             this.showPasswordCheckbox.Style = MetroSet_UI.Enums.Style.Light;
             this.showPasswordCheckbox.StyleManager = null;
             this.showPasswordCheckbox.TabIndex = 10;
@@ -177,13 +178,30 @@ namespace InventoryManagement
             this.showPasswordCheckbox.ThemeName = "MetroLite";
             this.showPasswordCheckbox.CheckedChanged += new MetroSet_UI.Controls.MetroSetCheckBox.CheckedChangedEventHandler(this.showPasswordCheckbox_CheckedChanged);
             // 
+            // clearLabel
+            // 
+            this.clearLabel.Font = new System.Drawing.Font("Segoe WP", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.clearLabel.IsDerivedStyle = true;
+            this.clearLabel.Location = new System.Drawing.Point(138, 328);
+            this.clearLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.clearLabel.Name = "clearLabel";
+            this.clearLabel.Size = new System.Drawing.Size(62, 25);
+            this.clearLabel.Style = MetroSet_UI.Enums.Style.Light;
+            this.clearLabel.StyleManager = null;
+            this.clearLabel.TabIndex = 11;
+            this.clearLabel.Text = "Clear";
+            this.clearLabel.ThemeAuthor = "Narwin";
+            this.clearLabel.ThemeName = "MetroLite";
+            this.clearLabel.Click += new System.EventHandler(this.clearLabel_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(532, 501);
+            this.ClientSize = new System.Drawing.Size(488, 434);
+            this.Controls.Add(this.clearLabel);
             this.Controls.Add(this.showPasswordCheckbox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.userNameTextBox);
@@ -212,6 +230,7 @@ namespace InventoryManagement
         private MetroSet_UI.Controls.MetroSetTextBox userNameTextBox;
         private MetroSet_UI.Controls.MetroSetTextBox passwordTextBox;
         private MetroSet_UI.Controls.MetroSetCheckBox showPasswordCheckbox;
+        private MetroSet_UI.Controls.MetroSetLabel clearLabel;
     }
 }
 

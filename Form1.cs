@@ -34,5 +34,11 @@ namespace InventoryManagement
                 passwordTextBox.UseSystemPasswordChar = true;
             }
         }
+
+        private void clearLabel_Click(object sender, EventArgs e)
+        {
+            userNameTextBox.Text = string.Empty;
+            passwordTextBox.Text = string.Empty;
+        }
     }
 }

@@ -19,3 +19,5 @@ E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\ref\In
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.pdb
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.genruntimeconfig.cache
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.csproj.AssemblyReference.cache
+E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.ManageUsers.resources
+E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.Dashboard.resources
