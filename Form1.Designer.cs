@@ -31,7 +31,11 @@ namespace InventoryManagement
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.metroSetButton1 = new MetroSet_UI.Controls.MetroSetButton();
-            this.metroSetLabel1 = new MetroSet_UI.Controls.MetroSetLabel();
+            this.userNameLabel = new MetroSet_UI.Controls.MetroSetLabel();
+            this.passwordLabel = new MetroSet_UI.Controls.MetroSetLabel();
+            this.userNameTextBox = new MetroSet_UI.Controls.MetroSetTextBox();
+            this.passwordTextBox = new MetroSet_UI.Controls.MetroSetTextBox();
+            this.showPasswordCheckbox = new MetroSet_UI.Controls.MetroSetCheckBox();
             this.SuspendLayout();
             // 
             // metroSetButton1
@@ -44,7 +48,8 @@ namespace InventoryManagement
             this.metroSetButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.metroSetButton1.HoverTextColor = System.Drawing.Color.White;
             this.metroSetButton1.IsDerivedStyle = true;
-            this.metroSetButton1.Location = new System.Drawing.Point(31, 96);
+            this.metroSetButton1.Location = new System.Drawing.Point(161, 264);
+            this.metroSetButton1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.metroSetButton1.Name = "metroSetButton1";
             this.metroSetButton1.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.metroSetButton1.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -52,7 +57,7 @@ namespace InventoryManagement
             this.metroSetButton1.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.metroSetButton1.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.metroSetButton1.PressTextColor = System.Drawing.Color.White;
-            this.metroSetButton1.Size = new System.Drawing.Size(132, 38);
+            this.metroSetButton1.Size = new System.Drawing.Size(176, 41);
             this.metroSetButton1.Style = MetroSet_UI.Enums.Style.Light;
             this.metroSetButton1.StyleManager = null;
             this.metroSetButton1.TabIndex = 1;
@@ -60,36 +65,141 @@ namespace InventoryManagement
             this.metroSetButton1.ThemeAuthor = "Narwin";
             this.metroSetButton1.ThemeName = "MetroLite";
             // 
-            // metroSetLabel1
+            // userNameLabel
             // 
-            this.metroSetLabel1.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.metroSetLabel1.IsDerivedStyle = true;
-            this.metroSetLabel1.Location = new System.Drawing.Point(370, 171);
-            this.metroSetLabel1.Name = "metroSetLabel1";
-            this.metroSetLabel1.Size = new System.Drawing.Size(193, 24);
-            this.metroSetLabel1.Style = MetroSet_UI.Enums.Style.Light;
-            this.metroSetLabel1.StyleManager = null;
-            this.metroSetLabel1.TabIndex = 2;
-            this.metroSetLabel1.Text = "Inventory Management";
-            this.metroSetLabel1.ThemeAuthor = "Narwin";
-            this.metroSetLabel1.ThemeName = "MetroLite";
+            this.userNameLabel.Font = new System.Drawing.Font("Segoe WP Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.userNameLabel.IsDerivedStyle = true;
+            this.userNameLabel.Location = new System.Drawing.Point(20, 116);
+            this.userNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Size = new System.Drawing.Size(133, 25);
+            this.userNameLabel.Style = MetroSet_UI.Enums.Style.Light;
+            this.userNameLabel.StyleManager = null;
+            this.userNameLabel.TabIndex = 6;
+            this.userNameLabel.Text = "User Name";
+            this.userNameLabel.ThemeAuthor = "Narwin";
+            this.userNameLabel.ThemeName = "MetroLite";
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.Font = new System.Drawing.Font("Segoe WP Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.passwordLabel.IsDerivedStyle = true;
+            this.passwordLabel.Location = new System.Drawing.Point(20, 187);
+            this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(133, 25);
+            this.passwordLabel.Style = MetroSet_UI.Enums.Style.Light;
+            this.passwordLabel.StyleManager = null;
+            this.passwordLabel.TabIndex = 7;
+            this.passwordLabel.Text = "Password";
+            this.passwordLabel.ThemeAuthor = "Narwin";
+            this.passwordLabel.ThemeName = "MetroLite";
+            // 
+            // userNameTextBox
+            // 
+            this.userNameTextBox.AutoCompleteCustomSource = null;
+            this.userNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.userNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.userNameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.userNameTextBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.userNameTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.userNameTextBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            this.userNameTextBox.Font = new System.Drawing.Font("Segoe WP", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.userNameTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.userNameTextBox.Image = null;
+            this.userNameTextBox.IsDerivedStyle = true;
+            this.userNameTextBox.Lines = null;
+            this.userNameTextBox.Location = new System.Drawing.Point(170, 111);
+            this.userNameTextBox.MaxLength = 32767;
+            this.userNameTextBox.Multiline = false;
+            this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.ReadOnly = false;
+            this.userNameTextBox.Size = new System.Drawing.Size(232, 30);
+            this.userNameTextBox.Style = MetroSet_UI.Enums.Style.Light;
+            this.userNameTextBox.StyleManager = null;
+            this.userNameTextBox.TabIndex = 8;
+            this.userNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.userNameTextBox.ThemeAuthor = "Narwin";
+            this.userNameTextBox.ThemeName = "MetroLite";
+            this.userNameTextBox.UseSystemPasswordChar = false;
+            this.userNameTextBox.WatermarkText = "";
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.AutoCompleteCustomSource = null;
+            this.passwordTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.passwordTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.passwordTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.passwordTextBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.passwordTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.passwordTextBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            this.passwordTextBox.Font = new System.Drawing.Font("Segoe WP", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.passwordTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.passwordTextBox.Image = null;
+            this.passwordTextBox.IsDerivedStyle = true;
+            this.passwordTextBox.Lines = null;
+            this.passwordTextBox.Location = new System.Drawing.Point(170, 187);
+            this.passwordTextBox.MaxLength = 32767;
+            this.passwordTextBox.Multiline = false;
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.ReadOnly = false;
+            this.passwordTextBox.Size = new System.Drawing.Size(232, 30);
+            this.passwordTextBox.Style = MetroSet_UI.Enums.Style.Light;
+            this.passwordTextBox.StyleManager = null;
+            this.passwordTextBox.TabIndex = 9;
+            this.passwordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.passwordTextBox.ThemeAuthor = "Narwin";
+            this.passwordTextBox.ThemeName = "MetroLite";
+            this.passwordTextBox.UseSystemPasswordChar = true;
+            this.passwordTextBox.WatermarkText = "";
+            // 
+            // showPasswordCheckbox
+            // 
+            this.showPasswordCheckbox.BackColor = System.Drawing.Color.Transparent;
+            this.showPasswordCheckbox.BackgroundColor = System.Drawing.Color.White;
+            this.showPasswordCheckbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.showPasswordCheckbox.Checked = false;
+            this.showPasswordCheckbox.CheckSignColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.showPasswordCheckbox.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            this.showPasswordCheckbox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.showPasswordCheckbox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            this.showPasswordCheckbox.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.showPasswordCheckbox.IsDerivedStyle = true;
+            this.showPasswordCheckbox.Location = new System.Drawing.Point(170, 233);
+            this.showPasswordCheckbox.Name = "showPasswordCheckbox";
+            this.showPasswordCheckbox.SignStyle = MetroSet_UI.Enums.SignStyle.Sign;
+            this.showPasswordCheckbox.Size = new System.Drawing.Size(167, 16);
+            this.showPasswordCheckbox.Style = MetroSet_UI.Enums.Style.Light;
+            this.showPasswordCheckbox.StyleManager = null;
+            this.showPasswordCheckbox.TabIndex = 10;
+            this.showPasswordCheckbox.Text = "Show Password";
+            this.showPasswordCheckbox.ThemeAuthor = "Narwin";
+            this.showPasswordCheckbox.ThemeName = "MetroLite";
+            this.showPasswordCheckbox.CheckedChanged += new MetroSet_UI.Controls.MetroSetCheckBox.CheckedChangedEventHandler(this.showPasswordCheckbox_CheckedChanged);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(684, 461);
-            this.Controls.Add(this.metroSetLabel1);
+            this.ClientSize = new System.Drawing.Size(532, 501);
+            this.Controls.Add(this.showPasswordCheckbox);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.userNameTextBox);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.userNameLabel);
             this.Controls.Add(this.metroSetButton1);
+            this.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
+            this.Padding = new System.Windows.Forms.Padding(16, 76, 16, 13);
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory Management";
             this.TextAlign = MetroSet_UI.Enums.TextAlign.Center;
-            this.TextColor = System.Drawing.Color.White;
+            this.TextColor = System.Drawing.Color.Black;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
@@ -97,7 +207,11 @@ namespace InventoryManagement
 
         #endregion
         private MetroSet_UI.Controls.MetroSetButton metroSetButton1;
-        private MetroSet_UI.Controls.MetroSetLabel metroSetLabel1;
+        private MetroSet_UI.Controls.MetroSetLabel userNameLabel;
+        private MetroSet_UI.Controls.MetroSetLabel passwordLabel;
+        private MetroSet_UI.Controls.MetroSetTextBox userNameTextBox;
+        private MetroSet_UI.Controls.MetroSetTextBox passwordTextBox;
+        private MetroSet_UI.Controls.MetroSetCheckBox showPasswordCheckbox;
     }
 }
 
