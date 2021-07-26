@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroSet_UI.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,12 +11,16 @@ using System.Windows.Forms;
 
 namespace InventoryManagement
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroSetForm
     {
         public Form1()
         {
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

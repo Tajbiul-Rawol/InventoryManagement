@@ -16,3 +16,6 @@ E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\Invent
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\ref\InventoryManagement.dll
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.pdb
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.genruntimeconfig.cache
+E:\InventoryManagementSystem\InventoryManagement\bin\Debug\net5.0-windows\MetroSet UI.dll
+E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.Properties.Resources.resources
+E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.csproj.CopyComplete

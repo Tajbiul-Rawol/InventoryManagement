@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "y/If2k8sHe5LWuvHK8z9+fcWvWQLDjWTNoKwLt7wzjpNb52gT2kC5+iBiggMLQnH7MH9i1/MbDh+XM+vFS5DIw==",
+  "dgSpecHash": "JVmT9GcbJpHFrH5iMT1oO+fG5nvrlnn4qvv6j/HjqPByAc45/ZqnNCnKUPc1Gu2Z7SMecnd2N3lOZVskb6K66g==",
   "success": true,
   "projectFilePath": "E:\\InventoryManagementSystem\\InventoryManagement\\InventoryManagement.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Tajbiul\\.nuget\\packages\\metroset_ui\\2.0.0\\metroset_ui.2.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
