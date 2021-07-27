@@ -21,3 +21,9 @@ E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\Invent
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.csproj.AssemblyReference.cache
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.ManageUsers.resources
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.Dashboard.resources
+E:\InventoryManagementSystem\InventoryManagement\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+E:\InventoryManagementSystem\InventoryManagement\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+E:\InventoryManagementSystem\InventoryManagement\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+E:\InventoryManagementSystem\InventoryManagement\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+E:\InventoryManagementSystem\InventoryManagement\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\InventoryManagementSystem\InventoryManagement\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
