@@ -33,6 +33,7 @@ namespace InventoryManagement
                 MessageBox.Show("User Successfully Added");
                 //close the connection
                 connection.Close();
+                populateGrid();
             }
             catch (Exception)
             {
