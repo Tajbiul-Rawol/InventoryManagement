@@ -209,6 +209,7 @@ namespace InventoryManagement
             this.deleteUserBtn.Text = "Delete";
             this.deleteUserBtn.ThemeAuthor = "Narwin";
             this.deleteUserBtn.ThemeName = "MetroLite";
+            this.deleteUserBtn.Click += new System.EventHandler(this.deleteUserBtn_Click);
             // 
             // addUserBtn
             // 
@@ -327,6 +328,7 @@ namespace InventoryManagement
             this.userGridView.RowTemplate.Height = 25;
             this.userGridView.Size = new System.Drawing.Size(543, 336);
             this.userGridView.TabIndex = 2;
+            this.userGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGridView_CellClick);
             // 
             // ManageUsers
             // 

@@ -75,5 +75,38 @@ namespace InventoryManagement
         {
             populateGrid();
         }
+
+        private void deleteUserBtn_Click(object sender, EventArgs e)
+        {
+            if (telephoneTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Please Enter The user telephone number to delete");
+            }
+            else
+            {
+                connection.Open();
+                var query = "delete from UserTbl where Utelephone = '" + telephoneTextBox.Text + "'";
+                SqlCommand command = new SqlCommand(query,connection);
+                command.ExecuteNonQuery();
+                MessageBox.Show("User Deleted Successfully");
+                connection.Close();
+                populateGrid();
+            }
+        }
+
+        private void userGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //check the index of the row of the selected cell
+            //if it is != 1 then bind the data
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow dataGridRow = userGridView.Rows[e.RowIndex];
+                userNameTextBox.Text = dataGridRow.Cells[0].Value.ToString();
+                fullNameTextBox.Text = dataGridRow.Cells[1].Value.ToString();
+                passwordTextBox.Text = dataGridRow.Cells[2].Value.ToString();
+                telephoneTextBox.Text = dataGridRow.Cells[3].Value.ToString();
+                emailTextBox.Text = dataGridRow.Cells[4].Value.ToString();
+            }
+        }
     }
 }
