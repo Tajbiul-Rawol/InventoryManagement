@@ -33,6 +33,7 @@ namespace InventoryManagement
                 MessageBox.Show("User Successfully Added");
                 //close the connection
                 connection.Close();
+                //populate data on grid
                 populateGrid();
             }
             catch (Exception)
@@ -46,8 +47,10 @@ namespace InventoryManagement
         {
             try
             {
+                //open connection
                 connection.Open();
                 var query = "select * from UserTbl";
+                //create a sql data adapter using the query and connection
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
                 SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(dataAdapter);
                 //create a dataset
@@ -106,6 +109,28 @@ namespace InventoryManagement
                 passwordTextBox.Text = dataGridRow.Cells[2].Value.ToString();
                 telephoneTextBox.Text = dataGridRow.Cells[3].Value.ToString();
                 emailTextBox.Text = dataGridRow.Cells[4].Value.ToString();
+            }
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            SqlCommand sqlCmd = new SqlCommand("update UserTbl set Uname= '"+userNameTextBox.Text+"', Ufullname='"+fullNameTextBox.Text+"', Upassword='"+passwordTextBox.Text+"', Uemail='"+emailTextBox.Text+"' where Utelephone='"+telephoneTextBox.Text+"' ", connection);
+            try
+            {
+                //open the connection using the connection string
+                connection.Open();
+                //execute the query
+                sqlCmd.ExecuteNonQuery();
+                MessageBox.Show("User Successfully Updated");
+                //close the connection
+                connection.Close();
+                //populate data on grid
+                populateGrid();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

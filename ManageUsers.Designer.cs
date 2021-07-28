@@ -183,6 +183,7 @@ namespace InventoryManagement
             this.updateBtn.Text = "Update";
             this.updateBtn.ThemeAuthor = "Narwin";
             this.updateBtn.ThemeName = "MetroLite";
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // deleteUserBtn
             // 
