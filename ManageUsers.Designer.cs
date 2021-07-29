@@ -33,6 +33,8 @@ namespace InventoryManagement
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.userIdTextBox = new System.Windows.Forms.TextBox();
             this.showPasswordCheckBox = new MetroSet_UI.Controls.MetroSetCheckBox();
             this.refreshBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.updateBtn = new MetroSet_UI.Controls.MetroSetButton();
@@ -88,6 +90,8 @@ namespace InventoryManagement
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.userIdTextBox);
             this.panel2.Controls.Add(this.showPasswordCheckBox);
             this.panel2.Controls.Add(this.refreshBtn);
             this.panel2.Controls.Add(this.updateBtn);
@@ -105,8 +109,24 @@ namespace InventoryManagement
             this.panel2.Controls.Add(this.userNameTextBox);
             this.panel2.Location = new System.Drawing.Point(12, 85);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(334, 337);
+            this.panel2.Size = new System.Drawing.Size(334, 353);
             this.panel2.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(18, 15);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "ID";
+            // 
+            // userIdTextBox
+            // 
+            this.userIdTextBox.Location = new System.Drawing.Point(104, 12);
+            this.userIdTextBox.Name = "userIdTextBox";
+            this.userIdTextBox.Size = new System.Drawing.Size(208, 23);
+            this.userIdTextBox.TabIndex = 15;
             // 
             // showPasswordCheckBox
             // 
@@ -120,7 +140,7 @@ namespace InventoryManagement
             this.showPasswordCheckBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             this.showPasswordCheckBox.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.showPasswordCheckBox.IsDerivedStyle = true;
-            this.showPasswordCheckBox.Location = new System.Drawing.Point(104, 140);
+            this.showPasswordCheckBox.Location = new System.Drawing.Point(104, 165);
             this.showPasswordCheckBox.Name = "showPasswordCheckBox";
             this.showPasswordCheckBox.SignStyle = MetroSet_UI.Enums.SignStyle.Sign;
             this.showPasswordCheckBox.Size = new System.Drawing.Size(140, 16);
@@ -142,7 +162,7 @@ namespace InventoryManagement
             this.refreshBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.refreshBtn.HoverTextColor = System.Drawing.Color.White;
             this.refreshBtn.IsDerivedStyle = true;
-            this.refreshBtn.Location = new System.Drawing.Point(120, 302);
+            this.refreshBtn.Location = new System.Drawing.Point(16, 317);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.refreshBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -169,7 +189,7 @@ namespace InventoryManagement
             this.updateBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.updateBtn.HoverTextColor = System.Drawing.Color.White;
             this.updateBtn.IsDerivedStyle = true;
-            this.updateBtn.Location = new System.Drawing.Point(224, 263);
+            this.updateBtn.Location = new System.Drawing.Point(224, 278);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.updateBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -196,7 +216,7 @@ namespace InventoryManagement
             this.deleteUserBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.deleteUserBtn.HoverTextColor = System.Drawing.Color.White;
             this.deleteUserBtn.IsDerivedStyle = true;
-            this.deleteUserBtn.Location = new System.Drawing.Point(120, 263);
+            this.deleteUserBtn.Location = new System.Drawing.Point(120, 278);
             this.deleteUserBtn.Name = "deleteUserBtn";
             this.deleteUserBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.deleteUserBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -223,7 +243,7 @@ namespace InventoryManagement
             this.addUserBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.addUserBtn.HoverTextColor = System.Drawing.Color.White;
             this.addUserBtn.IsDerivedStyle = true;
-            this.addUserBtn.Location = new System.Drawing.Point(16, 263);
+            this.addUserBtn.Location = new System.Drawing.Point(16, 278);
             this.addUserBtn.Name = "addUserBtn";
             this.addUserBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.addUserBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -243,7 +263,7 @@ namespace InventoryManagement
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 220);
+            this.label6.Location = new System.Drawing.Point(16, 237);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(36, 15);
             this.label6.TabIndex = 9;
@@ -251,7 +271,7 @@ namespace InventoryManagement
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(104, 220);
+            this.emailTextBox.Location = new System.Drawing.Point(104, 237);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(208, 23);
             this.emailTextBox.TabIndex = 8;
@@ -259,7 +279,7 @@ namespace InventoryManagement
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 174);
+            this.label5.Location = new System.Drawing.Point(16, 197);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 15);
             this.label5.TabIndex = 7;
@@ -267,7 +287,7 @@ namespace InventoryManagement
             // 
             // telephoneTextBox
             // 
-            this.telephoneTextBox.Location = new System.Drawing.Point(104, 174);
+            this.telephoneTextBox.Location = new System.Drawing.Point(104, 197);
             this.telephoneTextBox.Name = "telephoneTextBox";
             this.telephoneTextBox.Size = new System.Drawing.Size(208, 23);
             this.telephoneTextBox.TabIndex = 6;
@@ -275,7 +295,7 @@ namespace InventoryManagement
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 110);
+            this.label4.Location = new System.Drawing.Point(16, 136);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 15);
             this.label4.TabIndex = 5;
@@ -283,7 +303,7 @@ namespace InventoryManagement
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(104, 110);
+            this.passwordTextBox.Location = new System.Drawing.Point(104, 136);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(208, 23);
             this.passwordTextBox.TabIndex = 4;
@@ -292,7 +312,7 @@ namespace InventoryManagement
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 62);
+            this.label3.Location = new System.Drawing.Point(16, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 15);
             this.label3.TabIndex = 3;
@@ -300,7 +320,7 @@ namespace InventoryManagement
             // 
             // fullNameTextBox
             // 
-            this.fullNameTextBox.Location = new System.Drawing.Point(104, 62);
+            this.fullNameTextBox.Location = new System.Drawing.Point(104, 95);
             this.fullNameTextBox.Name = "fullNameTextBox";
             this.fullNameTextBox.Size = new System.Drawing.Size(208, 23);
             this.fullNameTextBox.TabIndex = 2;
@@ -308,7 +328,7 @@ namespace InventoryManagement
             // userNameLbl
             // 
             this.userNameLbl.AutoSize = true;
-            this.userNameLbl.Location = new System.Drawing.Point(16, 20);
+            this.userNameLbl.Location = new System.Drawing.Point(16, 50);
             this.userNameLbl.Name = "userNameLbl";
             this.userNameLbl.Size = new System.Drawing.Size(65, 15);
             this.userNameLbl.TabIndex = 1;
@@ -316,7 +336,7 @@ namespace InventoryManagement
             // 
             // userNameTextBox
             // 
-            this.userNameTextBox.Location = new System.Drawing.Point(104, 20);
+            this.userNameTextBox.Location = new System.Drawing.Point(104, 50);
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(208, 23);
             this.userNameTextBox.TabIndex = 0;
@@ -328,7 +348,7 @@ namespace InventoryManagement
             this.userGridView.Location = new System.Drawing.Point(375, 86);
             this.userGridView.Name = "userGridView";
             this.userGridView.RowTemplate.Height = 25;
-            this.userGridView.Size = new System.Drawing.Size(543, 336);
+            this.userGridView.Size = new System.Drawing.Size(543, 352);
             this.userGridView.TabIndex = 2;
             this.userGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGridView_CellClick);
             // 
@@ -374,5 +394,7 @@ namespace InventoryManagement
         private MetroSet_UI.Controls.MetroSetButton addUserBtn;
         private System.Windows.Forms.DataGridView userGridView;
         private MetroSet_UI.Controls.MetroSetCheckBox showPasswordCheckBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox userIdTextBox;
     }
 }

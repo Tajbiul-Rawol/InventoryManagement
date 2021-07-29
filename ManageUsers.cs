@@ -23,7 +23,7 @@ namespace InventoryManagement
 
         private void addUserBtn_Click(object sender, EventArgs e)
         {
-            SqlCommand sqlCmd = new SqlCommand("insert into UserTbl values('" + userNameTextBox.Text+"','"+fullNameTextBox.Text+"','"+passwordTextBox.Text+"','"+telephoneTextBox.Text+"','"+emailTextBox.Text+"')", connection);
+            SqlCommand sqlCmd = new SqlCommand("insert into UserTable values('" + userIdTextBox.Text + "','" + userNameTextBox.Text+"','"+fullNameTextBox.Text+"','"+passwordTextBox.Text+"','"+telephoneTextBox.Text+"','"+emailTextBox.Text+"')", connection);
             try
             {
                 //open the connection using the connection string
@@ -34,6 +34,14 @@ namespace InventoryManagement
                 //close the connection
                 connection.Close();
                 //populate data on grid
+
+                //empty the texboxes after adding
+                userIdTextBox.Text = string.Empty;
+                userNameTextBox.Text = string.Empty;
+                fullNameTextBox.Text = string.Empty;
+                passwordTextBox.Text = string.Empty;
+                telephoneTextBox.Text = string.Empty;
+                emailTextBox.Text = string.Empty;
                 populateGrid();
             }
             catch (Exception)
@@ -49,7 +57,7 @@ namespace InventoryManagement
             {
                 //open connection
                 connection.Open();
-                var query = "select * from UserTbl";
+                var query = "select * from UserTable";
                 //create a sql data adapter using the query and connection
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
                 SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(dataAdapter);
@@ -88,11 +96,18 @@ namespace InventoryManagement
             else
             {
                 connection.Open();
-                var query = "delete from UserTbl where Utelephone = '" + telephoneTextBox.Text + "'";
+                var query = "delete from UserTable where Utelephone = '" + telephoneTextBox.Text + "'";
                 SqlCommand command = new SqlCommand(query,connection);
                 command.ExecuteNonQuery();
                 MessageBox.Show("User Deleted Successfully");
                 connection.Close();
+
+                userIdTextBox.Text = string.Empty;
+                userNameTextBox.Text = string.Empty;
+                fullNameTextBox.Text = string.Empty;
+                passwordTextBox.Text = string.Empty;
+                telephoneTextBox.Text = string.Empty;
+                emailTextBox.Text = string.Empty;
                 populateGrid();
             }
         }
@@ -104,17 +119,22 @@ namespace InventoryManagement
             if (e.RowIndex != -1)
             {
                 DataGridViewRow dataGridRow = userGridView.Rows[e.RowIndex];
-                userNameTextBox.Text = dataGridRow.Cells[0].Value.ToString();
-                fullNameTextBox.Text = dataGridRow.Cells[1].Value.ToString();
-                passwordTextBox.Text = dataGridRow.Cells[2].Value.ToString();
-                telephoneTextBox.Text = dataGridRow.Cells[3].Value.ToString();
-                emailTextBox.Text = dataGridRow.Cells[4].Value.ToString();
+                userIdTextBox.Text = dataGridRow.Cells[0].Value.ToString();
+                if (userIdTextBox.Text != string.Empty)
+                {
+                    userIdTextBox.Enabled = false;
+                }
+                userNameTextBox.Text = dataGridRow.Cells[1].Value.ToString();
+                fullNameTextBox.Text = dataGridRow.Cells[2].Value.ToString();
+                passwordTextBox.Text = dataGridRow.Cells[3].Value.ToString();
+                telephoneTextBox.Text = dataGridRow.Cells[4].Value.ToString();
+                emailTextBox.Text = dataGridRow.Cells[5].Value.ToString();
             }
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            SqlCommand sqlCmd = new SqlCommand("update UserTbl set Uname= '"+userNameTextBox.Text+"', Ufullname='"+fullNameTextBox.Text+"', Upassword='"+passwordTextBox.Text+"', Uemail='"+emailTextBox.Text+"' where Utelephone='"+telephoneTextBox.Text+"' ", connection);
+            SqlCommand sqlCmd = new SqlCommand("update UserTable set Uname= '"+userNameTextBox.Text+"', Ufullname='"+fullNameTextBox.Text+"', Upassword='"+passwordTextBox.Text+"', Uemail='"+emailTextBox.Text+"' where Utelephone='"+userIdTextBox.Text+"' ", connection);
             try
             {
                 //open the connection using the connection string
@@ -136,6 +156,7 @@ namespace InventoryManagement
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
+            userIdTextBox.Text = string.Empty;
             userNameTextBox.Text = string.Empty;
             fullNameTextBox.Text = string.Empty;
             passwordTextBox.Text = string.Empty;
