@@ -157,6 +157,7 @@ namespace InventoryManagement
             this.refreshBtn.Text = "Refresh";
             this.refreshBtn.ThemeAuthor = "Narwin";
             this.refreshBtn.ThemeName = "MetroLite";
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
             // updateBtn
             // 

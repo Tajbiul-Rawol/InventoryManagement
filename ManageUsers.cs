@@ -133,5 +133,14 @@ namespace InventoryManagement
                 throw;
             }
         }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            userNameTextBox.Text = string.Empty;
+            fullNameTextBox.Text = string.Empty;
+            passwordTextBox.Text = string.Empty;
+            telephoneTextBox.Text = string.Empty;
+            emailTextBox.Text = string.Empty;
+        }
     }
 }
