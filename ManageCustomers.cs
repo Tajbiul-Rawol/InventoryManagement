@@ -13,6 +13,7 @@ namespace InventoryManagement
 {
     public partial class ManageCustomers : Form
     {
+        
         SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Tajbiul\Documents\inventorydb.mdf;Integrated Security=True;Connect Timeout=30");
         public ManageCustomers()
         {
@@ -21,9 +22,11 @@ namespace InventoryManagement
 
         private void addCustomerBtn_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("insert into CustomerTable values('" + customerIDTextBox.Text + "','" + customerNameTextBox.Text + "','" + customerPhoneTextBox.Text + "','" + customerEmailTextBox.Text + "')",connection);
+            var query = "insert into CustomerTable values('" + customerIDTextBox.Text + "','" + customerNameTextBox.Text + "','" + customerPhoneTextBox.Text + "','" + customerEmailTextBox.Text + "')";
+            
             try
             {
+                SqlCommand cmd = new SqlCommand(query, connection);
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Customer added successfully!");
@@ -71,10 +74,11 @@ namespace InventoryManagement
 
         private void updateCustomerBtn_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("update CustomerTable set CustName='"+customerNameTextBox.Text+"', CustPhone='"+customerPhoneTextBox.Text+"', CustEmail='"+customerEmailTextBox.Text+ "' where CustId='" + customerIDTextBox.Text + "' ",connection);
+            var query = "update CustomerTable set CustName='" + customerNameTextBox.Text + "', CustPhone='" + customerPhoneTextBox.Text + "', CustEmail='" + customerEmailTextBox.Text + "' where CustId='" + customerIDTextBox.Text + "' ";
 
             try
             {
+                SqlCommand cmd = new SqlCommand(query, connection);
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Customer Updated Successfully");
@@ -102,6 +106,38 @@ namespace InventoryManagement
                 customerPhoneTextBox.Text = dataGridViewRow.Cells[2].Value.ToString();
                 customerEmailTextBox.Text = dataGridViewRow.Cells[3].Value.ToString();
             }
+        }
+
+        private void deleteCustomerBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Open();
+                var query = "delete from CustomerTable where CustId='" + customerIDTextBox.Text + "' ";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Customer deleted successfully");
+                connection.Close();
+
+                customerIDTextBox.Text = string.Empty;
+                customerNameTextBox.Text = string.Empty;
+                customerPhoneTextBox.Text = string.Empty;
+                customerEmailTextBox.Text = string.Empty;
+                populateGrid();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void refreshCustomerBtn_Click(object sender, EventArgs e)
+        {
+            customerIDTextBox.Text = string.Empty;
+            customerNameTextBox.Text = string.Empty;
+            customerPhoneTextBox.Text = string.Empty;
+            customerEmailTextBox.Text = string.Empty;
         }
     }
 }
