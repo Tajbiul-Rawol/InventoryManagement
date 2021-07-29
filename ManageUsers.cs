@@ -24,6 +24,38 @@ namespace InventoryManagement
         private void addUserBtn_Click(object sender, EventArgs e)
         {
             SqlCommand sqlCmd = new SqlCommand("insert into UserTable values('" + userIdTextBox.Text + "','" + userNameTextBox.Text+"','"+fullNameTextBox.Text+"','"+passwordTextBox.Text+"','"+telephoneTextBox.Text+"','"+emailTextBox.Text+"')", connection);
+
+            if (userIdTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("User ID cannot be Empty!");
+                return;
+            }
+            if (userNameTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("User name cannot be Empty!");
+                return;
+            }
+            if (fullNameTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Full Name cannot be Empty!");
+                return;
+            }
+            if (passwordTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("password cannot be Empty!");
+                return;
+            }
+            if (telephoneTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("telephone cannot be Empty!");
+                return;
+            }
+            if (emailTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Email cannot be Empty!");
+                return;
+            }
+
             try
             {
                 //open the connection using the connection string
@@ -89,27 +121,29 @@ namespace InventoryManagement
 
         private void deleteUserBtn_Click(object sender, EventArgs e)
         {
-            if (telephoneTextBox.Text == string.Empty)
-            {
-                MessageBox.Show("Please Enter The user telephone number to delete");
-            }
-            else
-            {
-                connection.Open();
-                var query = "delete from UserTable where Utelephone = '" + telephoneTextBox.Text + "'";
-                SqlCommand command = new SqlCommand(query,connection);
-                command.ExecuteNonQuery();
-                MessageBox.Show("User Deleted Successfully");
-                connection.Close();
+           
+                var confirmResult = MessageBox.Show("Are you sure you want to delete this data?","Confirm Delete", MessageBoxButtons.YesNo);
 
-                userIdTextBox.Text = string.Empty;
-                userNameTextBox.Text = string.Empty;
-                fullNameTextBox.Text = string.Empty;
-                passwordTextBox.Text = string.Empty;
-                telephoneTextBox.Text = string.Empty;
-                emailTextBox.Text = string.Empty;
-                populateGrid();
-            }
+                if (confirmResult == DialogResult.Yes)
+                {
+                    connection.Open();
+                    var query = "delete from UserTable where Utelephone = '" + telephoneTextBox.Text + "'";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("User Deleted Successfully");
+                    connection.Close();
+
+                    userIdTextBox.Text = string.Empty;
+                    userNameTextBox.Text = string.Empty;
+                    fullNameTextBox.Text = string.Empty;
+                    passwordTextBox.Text = string.Empty;
+                    telephoneTextBox.Text = string.Empty;
+                    emailTextBox.Text = string.Empty;
+                    populateGrid();
+                }
+
+                return;
+          
         }
 
         private void userGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -156,12 +190,14 @@ namespace InventoryManagement
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
+            userIdTextBox.Enabled = true;
             userIdTextBox.Text = string.Empty;
             userNameTextBox.Text = string.Empty;
             fullNameTextBox.Text = string.Empty;
             passwordTextBox.Text = string.Empty;
             telephoneTextBox.Text = string.Empty;
             emailTextBox.Text = string.Empty;
+            
         }
     }
 }

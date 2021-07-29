@@ -23,7 +23,29 @@ namespace InventoryManagement
         private void addCustomerBtn_Click(object sender, EventArgs e)
         {
             var query = "insert into CustomerTable values('" + customerIDTextBox.Text + "','" + customerNameTextBox.Text + "','" + customerPhoneTextBox.Text + "','" + customerEmailTextBox.Text + "')";
+
+            if (customerIDTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("User ID cannot be Empty!");
+                return;
+            }
+            if (customerNameTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("User name cannot be Empty!");
+                return;
+            }
+            if (customerPhoneTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Full Name cannot be Empty!");
+                return;
+            }
+            if (customerEmailTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("password cannot be Empty!");
+                return;
+            }
             
+
             try
             {
                 SqlCommand cmd = new SqlCommand(query, connection);
@@ -92,8 +114,10 @@ namespace InventoryManagement
             }
         }
 
+        
         private void customerGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (e.RowIndex != 1)
             {
                 DataGridViewRow dataGridViewRow = customerGridView.Rows[e.RowIndex];
@@ -105,35 +129,48 @@ namespace InventoryManagement
                 customerNameTextBox.Text = dataGridViewRow.Cells[1].Value.ToString();
                 customerPhoneTextBox.Text = dataGridViewRow.Cells[2].Value.ToString();
                 customerEmailTextBox.Text = dataGridViewRow.Cells[3].Value.ToString();
+
+                return;
             }
+
+
         }
 
+       
         private void deleteCustomerBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                connection.Open();
-                var query = "delete from CustomerTable where CustId='" + customerIDTextBox.Text + "' ";
-                SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Customer deleted successfully");
-                connection.Close();
+            var confirmResult = MessageBox.Show("Are you sure You want to delete this customer?","Confirm Delete",MessageBoxButtons.YesNo);
 
-                customerIDTextBox.Text = string.Empty;
-                customerNameTextBox.Text = string.Empty;
-                customerPhoneTextBox.Text = string.Empty;
-                customerEmailTextBox.Text = string.Empty;
-                populateGrid();
-            }
-            catch (Exception)
+            if (confirmResult == DialogResult.Yes)
             {
+                try
+                {
+                    connection.Open();
+                    var query = "delete from CustomerTable where CustId='" + customerIDTextBox.Text + "' ";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Customer deleted successfully");
+                    connection.Close();
 
-                throw;
+                    customerIDTextBox.Text = string.Empty;
+                    customerNameTextBox.Text = string.Empty;
+                    customerPhoneTextBox.Text = string.Empty;
+                    customerEmailTextBox.Text = string.Empty;
+                    populateGrid();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
+            return;
+            
         }
 
         private void refreshCustomerBtn_Click(object sender, EventArgs e)
         {
+            customerIDTextBox.Enabled = true;
             customerIDTextBox.Text = string.Empty;
             customerNameTextBox.Text = string.Empty;
             customerPhoneTextBox.Text = string.Empty;
