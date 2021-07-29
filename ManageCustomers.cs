@@ -68,5 +68,40 @@ namespace InventoryManagement
         {
             populateGrid();
         }
+
+        private void updateCustomerBtn_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand("update CustomerTable set CustName='"+customerNameTextBox.Text+"', CustPhone='"+customerPhoneTextBox.Text+"', CustEmail='"+customerEmailTextBox.Text+ "' where CustId='" + customerIDTextBox.Text + "' ",connection);
+
+            try
+            {
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Customer Updated Successfully");
+                connection.Close();
+                populateGrid();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void customerGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != 1)
+            {
+                DataGridViewRow dataGridViewRow = customerGridView.Rows[e.RowIndex];
+                customerIDTextBox.Text = dataGridViewRow.Cells[0].Value.ToString();
+                if (customerIDTextBox.Text != string.Empty)
+                {
+                    customerIDTextBox.Enabled = false;
+                }
+                customerNameTextBox.Text = dataGridViewRow.Cells[1].Value.ToString();
+                customerPhoneTextBox.Text = dataGridViewRow.Cells[2].Value.ToString();
+                customerEmailTextBox.Text = dataGridViewRow.Cells[3].Value.ToString();
+            }
+        }
     }
 }

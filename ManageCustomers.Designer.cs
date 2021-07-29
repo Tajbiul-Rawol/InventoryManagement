@@ -153,6 +153,7 @@ namespace InventoryManagement
             this.updateCustomerBtn.Text = "Update";
             this.updateCustomerBtn.ThemeAuthor = "Narwin";
             this.updateCustomerBtn.ThemeName = "MetroLite";
+            this.updateCustomerBtn.Click += new System.EventHandler(this.updateCustomerBtn_Click);
             // 
             // deleteCustomerBtn
             // 
@@ -280,6 +281,7 @@ namespace InventoryManagement
             this.customerGridView.RowTemplate.Height = 25;
             this.customerGridView.Size = new System.Drawing.Size(543, 336);
             this.customerGridView.TabIndex = 3;
+            this.customerGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerGridView_CellClick);
             // 
             // ManageCustomers
             // 
