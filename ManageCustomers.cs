@@ -117,8 +117,10 @@ namespace InventoryManagement
         
         private void customerGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            if (e.RowIndex != 1)
+
+            //check the index of the row of the selected cell
+            //if it is != 1 then bind the data
+            if (e.RowIndex != -1)
             {
                 DataGridViewRow dataGridViewRow = customerGridView.Rows[e.RowIndex];
                 customerIDTextBox.Text = dataGridViewRow.Cells[0].Value.ToString();
@@ -130,9 +132,7 @@ namespace InventoryManagement
                 customerPhoneTextBox.Text = dataGridViewRow.Cells[2].Value.ToString();
                 customerEmailTextBox.Text = dataGridViewRow.Cells[3].Value.ToString();
 
-                return;
             }
-
 
         }
 
