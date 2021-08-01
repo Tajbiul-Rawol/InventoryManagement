@@ -105,6 +105,11 @@ namespace InventoryManagement
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Customer Updated Successfully");
                 connection.Close();
+                customerIDTextBox.Enabled = true;
+                customerIDTextBox.Text = string.Empty;
+                customerNameTextBox.Text = string.Empty;
+                customerPhoneTextBox.Text = string.Empty;
+                customerEmailTextBox.Text = string.Empty;
                 populateGrid();
             }
             catch (Exception)

@@ -177,6 +177,13 @@ namespace InventoryManagement
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("User Updated Successfully");
                 connection.Close();
+                userIdTextBox.Enabled = true;
+                userIdTextBox.Text = string.Empty;
+                userNameTextBox.Text = string.Empty;
+                fullNameTextBox.Text = string.Empty;
+                passwordTextBox.Text = string.Empty;
+                telephoneTextBox.Text = string.Empty;
+                emailTextBox.Text = string.Empty;
                 populateGrid();
             }
             catch (Exception)
