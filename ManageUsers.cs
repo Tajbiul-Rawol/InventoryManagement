@@ -168,17 +168,15 @@ namespace InventoryManagement
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            SqlCommand sqlCmd = new SqlCommand("update UserTable set Uname= '"+userNameTextBox.Text+"', Ufullname='"+fullNameTextBox.Text+"', Upassword='"+passwordTextBox.Text+"', Uemail='"+emailTextBox.Text+"' where Utelephone='"+userIdTextBox.Text+"' ", connection);
+            var query = "update UserTable set Uname='" + userNameTextBox.Text + "', Ufullname='" + fullNameTextBox.Text + "', Upassword='" + passwordTextBox.Text + "', Uemail='"+emailTextBox.Text+"' where Id='" + userIdTextBox.Text + "' ";
+
             try
             {
-                //open the connection using the connection string
+                SqlCommand cmd = new SqlCommand(query, connection);
                 connection.Open();
-                //execute the query
-                sqlCmd.ExecuteNonQuery();
-                MessageBox.Show("User Successfully Updated");
-                //close the connection
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("User Updated Successfully");
                 connection.Close();
-                //populate data on grid
                 populateGrid();
             }
             catch (Exception)
