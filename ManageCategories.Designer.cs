@@ -41,7 +41,10 @@ namespace InventoryManagement
             this.categoryNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.categoryIDTextBox = new System.Windows.Forms.TextBox();
+            this.searchCategoryBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.categoryGridView = new System.Windows.Forms.DataGridView();
+            this.searchCategoryTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryGridView)).BeginInit();
@@ -104,7 +107,7 @@ namespace InventoryManagement
             this.refreshCategoryBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.refreshCategoryBtn.HoverTextColor = System.Drawing.Color.White;
             this.refreshCategoryBtn.IsDerivedStyle = true;
-            this.refreshCategoryBtn.Location = new System.Drawing.Point(120, 174);
+            this.refreshCategoryBtn.Location = new System.Drawing.Point(120, 160);
             this.refreshCategoryBtn.Name = "refreshCategoryBtn";
             this.refreshCategoryBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.refreshCategoryBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -119,6 +122,7 @@ namespace InventoryManagement
             this.refreshCategoryBtn.Text = "Refresh";
             this.refreshCategoryBtn.ThemeAuthor = "Narwin";
             this.refreshCategoryBtn.ThemeName = "MetroLite";
+            this.refreshCategoryBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
             // updateCategoryBtn
             // 
@@ -233,22 +237,68 @@ namespace InventoryManagement
             this.categoryIDTextBox.Size = new System.Drawing.Size(210, 23);
             this.categoryIDTextBox.TabIndex = 2;
             // 
+            // searchCategoryBtn
+            // 
+            this.searchCategoryBtn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchCategoryBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchCategoryBtn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.searchCategoryBtn.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.searchCategoryBtn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.searchCategoryBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.searchCategoryBtn.HoverTextColor = System.Drawing.Color.White;
+            this.searchCategoryBtn.IsDerivedStyle = true;
+            this.searchCategoryBtn.Location = new System.Drawing.Point(775, 90);
+            this.searchCategoryBtn.Name = "searchCategoryBtn";
+            this.searchCategoryBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchCategoryBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchCategoryBtn.NormalTextColor = System.Drawing.Color.White;
+            this.searchCategoryBtn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.searchCategoryBtn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.searchCategoryBtn.PressTextColor = System.Drawing.Color.White;
+            this.searchCategoryBtn.Size = new System.Drawing.Size(98, 21);
+            this.searchCategoryBtn.Style = MetroSet_UI.Enums.Style.Light;
+            this.searchCategoryBtn.StyleManager = null;
+            this.searchCategoryBtn.TabIndex = 13;
+            this.searchCategoryBtn.Text = "Search";
+            this.searchCategoryBtn.ThemeAuthor = "Narwin";
+            this.searchCategoryBtn.ThemeName = "MetroLite";
+            this.searchCategoryBtn.Click += new System.EventHandler(this.searchCategoryBtn_Click);
+            // 
             // categoryGridView
             // 
             this.categoryGridView.AllowUserToOrderColumns = true;
             this.categoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.categoryGridView.Location = new System.Drawing.Point(371, 86);
+            this.categoryGridView.Location = new System.Drawing.Point(371, 119);
             this.categoryGridView.Name = "categoryGridView";
             this.categoryGridView.RowTemplate.Height = 25;
-            this.categoryGridView.Size = new System.Drawing.Size(543, 336);
+            this.categoryGridView.Size = new System.Drawing.Size(543, 303);
             this.categoryGridView.TabIndex = 4;
             this.categoryGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.catgegoryGridView_CellClick);
+            // 
+            // searchCategoryTextBox
+            // 
+            this.searchCategoryTextBox.Location = new System.Drawing.Point(540, 90);
+            this.searchCategoryTextBox.Name = "searchCategoryTextBox";
+            this.searchCategoryTextBox.Size = new System.Drawing.Size(210, 23);
+            this.searchCategoryTextBox.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(441, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 15);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Search Category";
             // 
             // ManageCategories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(941, 479);
+            this.Controls.Add(this.searchCategoryBtn);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.searchCategoryTextBox);
             this.Controls.Add(this.categoryGridView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -261,6 +311,7 @@ namespace InventoryManagement
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -270,7 +321,7 @@ namespace InventoryManagement
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private MetroSet_UI.Controls.MetroSetButton refreshCategoryBtn;
+        private MetroSet_UI.Controls.MetroSetButton searchCategoryBtn;
         private MetroSet_UI.Controls.MetroSetButton updateCategoryBtn;
         private MetroSet_UI.Controls.MetroSetButton deleteCategoryBtn;
         private MetroSet_UI.Controls.MetroSetButton addCategoryBtn;
@@ -279,5 +330,8 @@ namespace InventoryManagement
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox categoryIDTextBox;
         private System.Windows.Forms.DataGridView categoryGridView;
+        private System.Windows.Forms.TextBox searchCategoryTextBox;
+        private System.Windows.Forms.Label label5;
+        private MetroSet_UI.Controls.MetroSetButton refreshCategoryBtn;
     }
 }

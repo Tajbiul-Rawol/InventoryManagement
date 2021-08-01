@@ -202,7 +202,7 @@ namespace InventoryManagement
             passwordTextBox.Text = string.Empty;
             telephoneTextBox.Text = string.Empty;
             emailTextBox.Text = string.Empty;
-            
+            populateGrid();
         }
     }
 }

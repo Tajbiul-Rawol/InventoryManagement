@@ -117,6 +117,12 @@ namespace InventoryManagement
 
         private void updateCategoryBtn_Click(object sender, EventArgs e)
         {
+            if (categoryIDTextBox.Text == string.Empty || categoryNameTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Select Data before Updating");
+                return;
+            }
+
             var query = "update CategoryTable set CatName='" + categoryNameTextBox.Text + "' where CatId='" + categoryIDTextBox.Text + "' ";
 
             try
@@ -135,6 +141,33 @@ namespace InventoryManagement
 
                 throw;
             }
+        }
+
+
+        private void searchCategoryBtn_Click(object sender, EventArgs e)
+        {
+            if (searchCategoryTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Search by Name or ID must be in the search field");
+                return;
+            }
+
+            var query = "select * from CategoryTable where CatId like'"+searchCategoryTextBox.Text+"' or CatName like '"+searchCategoryTextBox.Text+"'";
+            SqlCommand cmd = new SqlCommand(query,connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+            var dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            categoryGridView.DataSource = dataSet.Tables[0];
+            connection.Close();
+        }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            categoryIDTextBox.Text = string.Empty;
+            categoryNameTextBox.Text = string.Empty;
+            searchCategoryTextBox.Text = string.Empty;
+            populateGrid();
         }
     }
 }

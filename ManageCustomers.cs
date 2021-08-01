@@ -180,6 +180,7 @@ namespace InventoryManagement
             customerNameTextBox.Text = string.Empty;
             customerPhoneTextBox.Text = string.Empty;
             customerEmailTextBox.Text = string.Empty;
+            populateGrid();
         }
     }
 }
