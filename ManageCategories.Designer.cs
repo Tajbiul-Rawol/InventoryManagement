@@ -41,10 +41,10 @@ namespace InventoryManagement
             this.categoryNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.categoryIDTextBox = new System.Windows.Forms.TextBox();
-            this.catgegoryGridView = new System.Windows.Forms.DataGridView();
+            this.categoryGridView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.catgegoryGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -232,22 +232,23 @@ namespace InventoryManagement
             this.categoryIDTextBox.Size = new System.Drawing.Size(210, 23);
             this.categoryIDTextBox.TabIndex = 2;
             // 
-            // catgegoryGridView
+            // categoryGridView
             // 
-            this.catgegoryGridView.AllowUserToOrderColumns = true;
-            this.catgegoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.catgegoryGridView.Location = new System.Drawing.Point(371, 86);
-            this.catgegoryGridView.Name = "catgegoryGridView";
-            this.catgegoryGridView.RowTemplate.Height = 25;
-            this.catgegoryGridView.Size = new System.Drawing.Size(543, 336);
-            this.catgegoryGridView.TabIndex = 4;
+            this.categoryGridView.AllowUserToOrderColumns = true;
+            this.categoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.categoryGridView.Location = new System.Drawing.Point(371, 86);
+            this.categoryGridView.Name = "categoryGridView";
+            this.categoryGridView.RowTemplate.Height = 25;
+            this.categoryGridView.Size = new System.Drawing.Size(543, 336);
+            this.categoryGridView.TabIndex = 4;
+            this.categoryGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.catgegoryGridView_CellClick);
             // 
             // ManageCategories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(941, 479);
-            this.Controls.Add(this.catgegoryGridView);
+            this.Controls.Add(this.categoryGridView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "ManageCategories";
@@ -257,7 +258,7 @@ namespace InventoryManagement
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.catgegoryGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,6 +277,6 @@ namespace InventoryManagement
         private System.Windows.Forms.TextBox categoryNameTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox categoryIDTextBox;
-        private System.Windows.Forms.DataGridView catgegoryGridView;
+        private System.Windows.Forms.DataGridView categoryGridView;
     }
 }

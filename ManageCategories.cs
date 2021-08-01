@@ -43,6 +43,7 @@ namespace InventoryManagement
                 connection.Close();
                 categoryIDTextBox.Text = string.Empty;
                 categoryNameTextBox.Text = string.Empty;
+                populateGrid();
             }
             catch (Exception)
             {
@@ -61,7 +62,7 @@ namespace InventoryManagement
                 SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
                 DataSet dataSet = new DataSet();
                 dataAdapter.Fill(dataSet);
-                catgegoryGridView.DataSource = dataSet.Tables[0];
+                categoryGridView.DataSource = dataSet.Tables[0];
                 connection.Close();
             }
             catch (Exception)
@@ -95,6 +96,20 @@ namespace InventoryManagement
 
                     throw;
                 }
+            }
+        }
+
+        private void catgegoryGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow dataGridViewRow = categoryGridView.Rows[e.RowIndex];
+                categoryIDTextBox.Text = dataGridViewRow.Cells[0].Value.ToString();
+                if (categoryIDTextBox.Text != string.Empty)
+                {
+                    categoryIDTextBox.Enabled = false;
+                }
+                categoryNameTextBox.Text = dataGridViewRow.Cells[1].Value.ToString();
             }
         }
     }
