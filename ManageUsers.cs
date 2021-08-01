@@ -23,8 +23,7 @@ namespace InventoryManagement
 
         private void addUserBtn_Click(object sender, EventArgs e)
         {
-            SqlCommand sqlCmd = new SqlCommand("insert into UserTable values('" + userIdTextBox.Text + "','" + userNameTextBox.Text+"','"+fullNameTextBox.Text+"','"+passwordTextBox.Text+"','"+telephoneTextBox.Text+"','"+emailTextBox.Text+"')", connection);
-
+            
             if (userIdTextBox.Text == string.Empty)
             {
                 MessageBox.Show("User ID cannot be Empty!");
@@ -58,6 +57,7 @@ namespace InventoryManagement
 
             try
             {
+                SqlCommand sqlCmd = new SqlCommand("insert into UserTable values('" + userIdTextBox.Text + "','" + userNameTextBox.Text + "','" + fullNameTextBox.Text + "','" + passwordTextBox.Text + "','" + telephoneTextBox.Text + "','" + emailTextBox.Text + "')", connection);
                 //open the connection using the connection string
                 connection.Open();
                 //execute the query

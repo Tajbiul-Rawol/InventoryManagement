@@ -28,3 +28,4 @@ E:\InventoryManagementSystem\InventoryManagement\bin\Debug\net5.0-windows\runtim
 E:\InventoryManagementSystem\InventoryManagement\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 E:\InventoryManagementSystem\InventoryManagement\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.ManageCustomers.resources
+E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.ManageCategories.resources

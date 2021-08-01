@@ -22,8 +22,7 @@ namespace InventoryManagement
 
         private void addCustomerBtn_Click(object sender, EventArgs e)
         {
-            var query = "insert into CustomerTable values('" + customerIDTextBox.Text + "','" + customerNameTextBox.Text + "','" + customerPhoneTextBox.Text + "','" + customerEmailTextBox.Text + "')";
-
+           
             if (customerIDTextBox.Text == string.Empty)
             {
                 MessageBox.Show("User ID cannot be Empty!");
@@ -48,6 +47,7 @@ namespace InventoryManagement
 
             try
             {
+                var query = "insert into CustomerTable values('" + customerIDTextBox.Text + "','" + customerNameTextBox.Text + "','" + customerPhoneTextBox.Text + "','" + customerEmailTextBox.Text + "')";
                 SqlCommand cmd = new SqlCommand(query, connection);
                 connection.Open();
                 cmd.ExecuteNonQuery();
@@ -77,7 +77,7 @@ namespace InventoryManagement
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
                 SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(dataAdapter);
                 //create a dataset
-                var dataSet = new DataSet();
+                var dataSet = new DataSet();    
                 dataAdapter.Fill(dataSet);
                 customerGridView.DataSource = dataSet.Tables[0];
                 connection.Close();
@@ -150,8 +150,8 @@ namespace InventoryManagement
             {
                 try
                 {
-                    connection.Open();
                     var query = "delete from CustomerTable where CustId='" + customerIDTextBox.Text + "' ";
+                    connection.Open();
                     SqlCommand cmd = new SqlCommand(query, connection);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Customer deleted successfully");
