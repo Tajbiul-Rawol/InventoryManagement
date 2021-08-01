@@ -145,6 +145,7 @@ namespace InventoryManagement
             this.updateCategoryBtn.Text = "Update";
             this.updateCategoryBtn.ThemeAuthor = "Narwin";
             this.updateCategoryBtn.ThemeName = "MetroLite";
+            this.updateCategoryBtn.Click += new System.EventHandler(this.updateCategoryBtn_Click);
             // 
             // deleteCategoryBtn
             // 

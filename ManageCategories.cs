@@ -54,6 +54,7 @@ namespace InventoryManagement
 
         private void populateGrid() 
         {
+           
             try
             {
                 connection.Open();
@@ -110,6 +111,29 @@ namespace InventoryManagement
                     categoryIDTextBox.Enabled = false;
                 }
                 categoryNameTextBox.Text = dataGridViewRow.Cells[1].Value.ToString();
+                
+            }
+        }
+
+        private void updateCategoryBtn_Click(object sender, EventArgs e)
+        {
+            var query = "update CategoryTable set CatName='" + categoryNameTextBox.Text + "' where CatId='" + categoryIDTextBox.Text + "' ";
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(query, connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Category Updated Successfully");
+                connection.Close();
+                categoryIDTextBox.Text = string.Empty;
+                categoryNameTextBox.Text = string.Empty;
+                populateGrid();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
