@@ -51,6 +51,9 @@ namespace InventoryManagement
             this.userNameLbl = new System.Windows.Forms.Label();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.userGridView = new System.Windows.Forms.DataGridView();
+            this.searchUserTextBox = new System.Windows.Forms.TextBox();
+            this.searchUserBtn = new MetroSet_UI.Controls.MetroSetButton();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
@@ -345,18 +348,64 @@ namespace InventoryManagement
             // 
             this.userGridView.AllowUserToOrderColumns = true;
             this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userGridView.Location = new System.Drawing.Point(375, 86);
+            this.userGridView.Location = new System.Drawing.Point(375, 121);
             this.userGridView.Name = "userGridView";
             this.userGridView.RowTemplate.Height = 25;
-            this.userGridView.Size = new System.Drawing.Size(543, 352);
+            this.userGridView.Size = new System.Drawing.Size(543, 317);
             this.userGridView.TabIndex = 2;
             this.userGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGridView_CellClick);
+            // 
+            // searchUserTextBox
+            // 
+            this.searchUserTextBox.Location = new System.Drawing.Point(539, 90);
+            this.searchUserTextBox.Name = "searchUserTextBox";
+            this.searchUserTextBox.Size = new System.Drawing.Size(208, 23);
+            this.searchUserTextBox.TabIndex = 9;
+            // 
+            // searchUserBtn
+            // 
+            this.searchUserBtn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchUserBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchUserBtn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.searchUserBtn.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.searchUserBtn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.searchUserBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.searchUserBtn.HoverTextColor = System.Drawing.Color.White;
+            this.searchUserBtn.IsDerivedStyle = true;
+            this.searchUserBtn.Location = new System.Drawing.Point(769, 90);
+            this.searchUserBtn.Name = "searchUserBtn";
+            this.searchUserBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchUserBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchUserBtn.NormalTextColor = System.Drawing.Color.White;
+            this.searchUserBtn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.searchUserBtn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.searchUserBtn.PressTextColor = System.Drawing.Color.White;
+            this.searchUserBtn.Size = new System.Drawing.Size(98, 21);
+            this.searchUserBtn.Style = MetroSet_UI.Enums.Style.Light;
+            this.searchUserBtn.StyleManager = null;
+            this.searchUserBtn.TabIndex = 13;
+            this.searchUserBtn.Text = "search";
+            this.searchUserBtn.ThemeAuthor = "Narwin";
+            this.searchUserBtn.ThemeName = "MetroLite";
+            this.searchUserBtn.Click += new System.EventHandler(this.searchUserBtn_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(436, 90);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(68, 15);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Search User";
             // 
             // ManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 450);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.searchUserBtn);
+            this.Controls.Add(this.searchUserTextBox);
             this.Controls.Add(this.userGridView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -369,6 +418,7 @@ namespace InventoryManagement
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -396,5 +446,8 @@ namespace InventoryManagement
         private MetroSet_UI.Controls.MetroSetCheckBox showPasswordCheckBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox userIdTextBox;
+        private System.Windows.Forms.TextBox searchUserTextBox;
+        private MetroSet_UI.Controls.MetroSetButton searchUserBtn;
+        private System.Windows.Forms.Label label8;
     }
 }

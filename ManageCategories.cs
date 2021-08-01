@@ -152,14 +152,28 @@ namespace InventoryManagement
                 return;
             }
 
-            var query = "select * from CategoryTable where CatId like'"+searchCategoryTextBox.Text+"' or CatName like '"+searchCategoryTextBox.Text+"'";
-            SqlCommand cmd = new SqlCommand(query,connection);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
-            var dataSet = new DataSet();
-            adapter.Fill(dataSet);
-            categoryGridView.DataSource = dataSet.Tables[0];
-            connection.Close();
+            try
+            {
+                var query = "select * from CategoryTable where CatId like '%" + searchCategoryTextBox.Text + "%' or CatName like '%" + searchCategoryTextBox.Text + "%'";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("Category not Found");
+                    return;
+                }
+                categoryGridView.DataSource = dataSet.Tables[0];
+                connection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)

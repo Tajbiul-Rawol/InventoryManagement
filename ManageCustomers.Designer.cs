@@ -46,6 +46,9 @@ namespace InventoryManagement
             this.label3 = new System.Windows.Forms.Label();
             this.customerIDTextBox = new System.Windows.Forms.TextBox();
             this.customerGridView = new System.Windows.Forms.DataGridView();
+            this.searchCustomerTextBox = new System.Windows.Forms.TextBox();
+            this.searchCustomerBtn = new MetroSet_UI.Controls.MetroSetButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
@@ -278,18 +281,64 @@ namespace InventoryManagement
             // 
             this.customerGridView.AllowUserToOrderColumns = true;
             this.customerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerGridView.Location = new System.Drawing.Point(386, 85);
+            this.customerGridView.Location = new System.Drawing.Point(386, 126);
             this.customerGridView.Name = "customerGridView";
             this.customerGridView.RowTemplate.Height = 25;
-            this.customerGridView.Size = new System.Drawing.Size(543, 336);
+            this.customerGridView.Size = new System.Drawing.Size(543, 295);
             this.customerGridView.TabIndex = 3;
             this.customerGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerGridView_CellClick);
+            // 
+            // searchCustomerTextBox
+            // 
+            this.searchCustomerTextBox.Location = new System.Drawing.Point(540, 97);
+            this.searchCustomerTextBox.Name = "searchCustomerTextBox";
+            this.searchCustomerTextBox.Size = new System.Drawing.Size(210, 23);
+            this.searchCustomerTextBox.TabIndex = 4;
+            // 
+            // searchCustomerBtn
+            // 
+            this.searchCustomerBtn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchCustomerBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchCustomerBtn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.searchCustomerBtn.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.searchCustomerBtn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.searchCustomerBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.searchCustomerBtn.HoverTextColor = System.Drawing.Color.White;
+            this.searchCustomerBtn.IsDerivedStyle = true;
+            this.searchCustomerBtn.Location = new System.Drawing.Point(784, 97);
+            this.searchCustomerBtn.Name = "searchCustomerBtn";
+            this.searchCustomerBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchCustomerBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchCustomerBtn.NormalTextColor = System.Drawing.Color.White;
+            this.searchCustomerBtn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.searchCustomerBtn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.searchCustomerBtn.PressTextColor = System.Drawing.Color.White;
+            this.searchCustomerBtn.Size = new System.Drawing.Size(98, 21);
+            this.searchCustomerBtn.Style = MetroSet_UI.Enums.Style.Light;
+            this.searchCustomerBtn.StyleManager = null;
+            this.searchCustomerBtn.TabIndex = 13;
+            this.searchCustomerBtn.Text = "Search";
+            this.searchCustomerBtn.ThemeAuthor = "Narwin";
+            this.searchCustomerBtn.ThemeName = "MetroLite";
+            this.searchCustomerBtn.Click += new System.EventHandler(this.searchCustomerBtn_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(428, 97);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(97, 15);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Search Customer";
             // 
             // ManageCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(941, 479);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.searchCustomerBtn);
+            this.Controls.Add(this.searchCustomerTextBox);
             this.Controls.Add(this.customerGridView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -303,6 +352,7 @@ namespace InventoryManagement
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -325,5 +375,8 @@ namespace InventoryManagement
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox customerIDTextBox;
         private System.Windows.Forms.DataGridView customerGridView;
+        private System.Windows.Forms.TextBox searchCustomerTextBox;
+        private MetroSet_UI.Controls.MetroSetButton searchCustomerBtn;
+        private System.Windows.Forms.Label label7;
     }
 }

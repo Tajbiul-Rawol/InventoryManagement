@@ -202,7 +202,41 @@ namespace InventoryManagement
             passwordTextBox.Text = string.Empty;
             telephoneTextBox.Text = string.Empty;
             emailTextBox.Text = string.Empty;
+            searchUserTextBox.Text = string.Empty;
             populateGrid();
+        }
+
+        private void searchUserBtn_Click(object sender, EventArgs e)
+        {
+            if (searchUserTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Search User by Name or ID must be in the search field");
+                return;
+            }
+
+            try
+            {
+                var query = "select * from UserTable where Id like '%" + searchUserTextBox.Text + "%' or Uname like '%" + searchUserTextBox.Text + "%' or Ufullname like '%" + searchUserTextBox.Text + "%' or Utelephone like '%" + searchUserTextBox.Text + "%' or Uemail like '%" + searchUserTextBox.Text + "%' ";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("User not Found");
+                    return;
+                }
+               
+                userGridView.DataSource = dataSet.Tables[0];
+                connection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

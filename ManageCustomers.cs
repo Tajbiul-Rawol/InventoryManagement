@@ -180,7 +180,42 @@ namespace InventoryManagement
             customerNameTextBox.Text = string.Empty;
             customerPhoneTextBox.Text = string.Empty;
             customerEmailTextBox.Text = string.Empty;
+            searchCustomerTextBox.Text = string.Empty;
             populateGrid();
+        }
+
+        
+
+        private void searchCustomerBtn_Click(object sender, EventArgs e)
+        {
+            if (searchCustomerTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Search by Name or ID must be in the search field");
+                return;
+            }
+
+            try
+            {
+                var query = "select * from CustomerTable where CustId like   '%" + searchCustomerTextBox.Text + "%' or CustName like '%" + searchCustomerTextBox.Text + "%' or CustPhone like '%" + searchCustomerTextBox.Text + "%' or CustEmail like '%" + searchCustomerTextBox.Text + "%' ";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("Customer not Found");
+                    return;
+                }
+                customerGridView.DataSource = dataSet.Tables[0];
+                connection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
