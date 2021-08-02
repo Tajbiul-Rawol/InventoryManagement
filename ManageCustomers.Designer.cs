@@ -49,9 +49,21 @@ namespace InventoryManagement
             this.searchCustomerTextBox = new System.Windows.Forms.TextBox();
             this.searchCustomerBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -331,11 +343,107 @@ namespace InventoryManagement
             this.label7.TabIndex = 14;
             this.label7.Text = "Search Customer";
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.LightGray;
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.ForeColor = System.Drawing.Color.Black;
+            this.panel3.Location = new System.Drawing.Point(398, 427);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(144, 48);
+            this.panel3.TabIndex = 15;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 15);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Orders Count";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(3, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 21);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Orders";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.DarkGray;
+            this.panel4.Controls.Add(this.label10);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.ForeColor = System.Drawing.Color.Black;
+            this.panel4.Location = new System.Drawing.Point(595, 427);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(144, 48);
+            this.panel4.TabIndex = 16;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(3, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 21);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Amount";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(3, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 15);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Orders Amount";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel5.Controls.Add(this.label12);
+            this.panel5.Controls.Add(this.label13);
+            this.panel5.ForeColor = System.Drawing.Color.Black;
+            this.panel5.Location = new System.Drawing.Point(779, 427);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(150, 48);
+            this.panel5.TabIndex = 17;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(3, 20);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(46, 21);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Date";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.Location = new System.Drawing.Point(3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(95, 15);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Last Order Date";
+            // 
             // ManageCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(941, 479);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.searchCustomerBtn);
             this.Controls.Add(this.searchCustomerTextBox);
@@ -351,6 +459,12 @@ namespace InventoryManagement
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,5 +492,14 @@ namespace InventoryManagement
         private System.Windows.Forms.TextBox searchCustomerTextBox;
         private MetroSet_UI.Controls.MetroSetButton searchCustomerBtn;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
