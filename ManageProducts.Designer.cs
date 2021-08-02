@@ -249,6 +249,7 @@ namespace InventoryManagement
             this.addProductBtn.Text = "Add";
             this.addProductBtn.ThemeAuthor = "Narwin";
             this.addProductBtn.ThemeName = "MetroLite";
+            this.addProductBtn.Click += new System.EventHandler(this.addProductBtn_Click);
             // 
             // label6
             // 

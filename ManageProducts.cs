@@ -54,7 +54,56 @@ namespace InventoryManagement
 
         private void ManageProducts_Load(object sender, EventArgs e)
         {
+            populateGrid();
             FillCategory();
+        }
+
+
+        private void populateGrid()
+        {
+            try
+            {
+                //open connection
+                connection.Open();
+                var query = "select * from ProductTable";
+                //create a sql data adapter using the query and connection
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
+                SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(dataAdapter);
+                //create a dataset
+                var dataSet = new DataSet();
+                dataAdapter.Fill(dataSet);
+                productGridView.DataSource = dataSet.Tables[0];
+                connection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void addProductBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var query = "insert into ProductTable values('" + productIDTextBox.Text + "','" + productNameTextBox.Text + "','" + productQuantityTextBox.Text + "','" + productPriceTextBox.Text + "','" +descriptionTextBox.Text + "','" + productCategoryComboBox.SelectedItem.ToString() + "')";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Product added successfully!");
+                connection.Close();
+                productIDTextBox.Text = string.Empty;
+                productNameTextBox.Text = string.Empty;
+                productQuantityTextBox.Text = string.Empty;
+                descriptionTextBox.Text = string.Empty;
+                productCategoryComboBox.SelectedIndex = -1;
+                populateGrid();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
