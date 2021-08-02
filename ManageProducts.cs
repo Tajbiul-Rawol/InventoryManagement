@@ -25,18 +25,17 @@ namespace InventoryManagement
             {
                 
                 string query = "select * from CategoryTable";
-                SqlCommand cmd = new SqlCommand(query, connection);
-                SqlDataReader dataReader;
-
+              
                 try
                 {
                     connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
                     DataTable dataTable = new DataTable();
-                    dataTable.Columns.Add("CatName", typeof(string));
-                    dataReader = cmd.ExecuteReader();
-                    dataTable.Load(dataReader);
-                    productCategoryComboBox.ValueMember = "CatName";
+                    dataAdapter.Fill(dataTable);
                     productCategoryComboBox.DataSource = dataTable;
+                    productCategoryComboBox.DisplayMember = "CatName";
+                    productCategoryComboBox.ValueMember = "CatName";
                     connection.Close();
                 }
                 catch (Exception)
