@@ -96,6 +96,14 @@ namespace InventoryManagement
 
         private void updateCustomerBtn_Click(object sender, EventArgs e)
         {
+            if (customerIDTextBox.Text == string.Empty ||
+                customerNameTextBox.Text == string.Empty ||
+                customerPhoneTextBox.Text == string.Empty ||
+                customerEmailTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Fields cannot be empty");
+                return;
+            }
             var query = "update CustomerTable set CustName='" + customerNameTextBox.Text + "', CustPhone='" + customerPhoneTextBox.Text + "', CustEmail='" + customerEmailTextBox.Text + "' where CustId='" + customerIDTextBox.Text + "' ";
 
             try

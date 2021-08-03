@@ -84,6 +84,28 @@ namespace InventoryManagement
 
         private void addProductBtn_Click(object sender, EventArgs e)
         {
+            if (productIDTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Product ID cannot be Empty!");
+                return;
+            }
+            if (productNameTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Product name cannot be Empty!");
+                return;
+            }
+            if (productPriceTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Price cannot be Empty!");
+                return;
+            }
+            if (productQuantityTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Quantity cannot be Empty!");
+                return;
+            }
+            
+
             try
             {
                 var query = "insert into ProductTable values('" + productIDTextBox.Text + "','" + productNameTextBox.Text + "','" + productQuantityTextBox.Text + "','" + productPriceTextBox.Text + "','" +descriptionTextBox.Text + "','" + productCategoryComboBox.SelectedValue.ToString() + "')";
@@ -140,6 +162,14 @@ namespace InventoryManagement
 
         private void updateProductBtn_Click(object sender, EventArgs e)
         {
+            if (productIDTextBox.Text == string.Empty || 
+                productNameTextBox.Text == string.Empty ||
+                productPriceTextBox.Text == string.Empty || 
+                productQuantityTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Fields cannot be empty");
+                return;
+            }
             var query = "update ProductTable set ProductName='" + productNameTextBox.Text + "', ProductQuantity='" + productQuantityTextBox.Text + "', ProductPrice='" + productPriceTextBox.Text + "', Description='" + descriptionTextBox.Text + "', ProductCategory='" + productCategoryComboBox.SelectedValue.ToString() + "' where ProductId='" + productIDTextBox.Text + "' ";
             try
             {

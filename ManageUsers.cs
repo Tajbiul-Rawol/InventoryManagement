@@ -126,13 +126,20 @@ namespace InventoryManagement
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    connection.Open();
                     var query = "delete from UserTable where Utelephone = '" + telephoneTextBox.Text + "'";
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("User Deleted Successfully");
-                    connection.Close();
 
+                    try
+                    {
+                       connection.Open();
+                       SqlCommand command = new SqlCommand(query, connection);
+                       command.ExecuteNonQuery();
+                       MessageBox.Show("User Deleted Successfully");
+                       connection.Close();
+                }
+                    catch (Exception)
+                    {
+                       throw;
+                    }
                     userIdTextBox.Text = string.Empty;
                     userNameTextBox.Text = string.Empty;
                     fullNameTextBox.Text = string.Empty;
@@ -168,6 +175,16 @@ namespace InventoryManagement
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
+            if (userIdTextBox.Text == string.Empty ||
+               userNameTextBox.Text == string.Empty ||
+               passwordTextBox.Text == string.Empty ||
+               telephoneTextBox.Text == string.Empty||
+               emailTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("User Fields cannot be empty");
+                return;
+            }
+
             var query = "update UserTable set Uname='" + userNameTextBox.Text + "', Ufullname='" + fullNameTextBox.Text + "', Upassword='" + passwordTextBox.Text + "', Uemail='"+emailTextBox.Text+"' where Id='" + userIdTextBox.Text + "' ";
 
             try
