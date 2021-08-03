@@ -171,6 +171,7 @@ namespace InventoryManagement
             this.refreshProductBtn.Text = "Refresh";
             this.refreshProductBtn.ThemeAuthor = "Narwin";
             this.refreshProductBtn.ThemeName = "MetroLite";
+            this.refreshProductBtn.Click += new System.EventHandler(this.refreshProductBtn_Click);
             // 
             // updateProductBtn
             // 
@@ -197,6 +198,7 @@ namespace InventoryManagement
             this.updateProductBtn.Text = "Update";
             this.updateProductBtn.ThemeAuthor = "Narwin";
             this.updateProductBtn.ThemeName = "MetroLite";
+            this.updateProductBtn.Click += new System.EventHandler(this.updateProductBtn_Click);
             // 
             // deleteProductBtn
             // 
@@ -223,6 +225,7 @@ namespace InventoryManagement
             this.deleteProductBtn.Text = "Delete";
             this.deleteProductBtn.ThemeAuthor = "Narwin";
             this.deleteProductBtn.ThemeName = "MetroLite";
+            this.deleteProductBtn.Click += new System.EventHandler(this.deleteProductBtn_Click);
             // 
             // addProductBtn
             // 

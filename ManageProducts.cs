@@ -123,5 +123,70 @@ namespace InventoryManagement
                 productCategoryComboBox.SelectedValue = dataGridViewRow.Cells[5].Value.ToString();
             }
         }
+
+        private void refreshProductBtn_Click(object sender, EventArgs e)
+        {
+            productNameTextBox.Text = string.Empty;
+            productPriceTextBox.Text = string.Empty;
+            productQuantityTextBox.Text = string.Empty;
+            descriptionTextBox.Text = string.Empty;
+            productCategoryComboBox.SelectedIndex = -1;
+        }
+
+        private void updateProductBtn_Click(object sender, EventArgs e)
+        {
+            var query = "update ProductTable set ProductName='" + productNameTextBox.Text + "', ProductQuantity='" + productQuantityTextBox.Text + "', ProductPrice='" + productPriceTextBox.Text + "', Description='" + descriptionTextBox.Text + "', ProductCategory='" + productCategoryComboBox.SelectedValue.ToString() + "' where ProductId='" + productIDTextBox.Text + "' ";
+            try
+            {
+                SqlCommand cmd = new SqlCommand(query,connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Product Update Successful");
+                connection.Close();
+                productNameTextBox.Text = string.Empty;
+                productPriceTextBox.Text = string.Empty;
+                productQuantityTextBox.Text = string.Empty;
+                descriptionTextBox.Text = string.Empty;
+                productCategoryComboBox.SelectedIndex = -1;
+                populateGrid();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void deleteProductBtn_Click(object sender, EventArgs e)
+        {
+            var query = "delete from ProductTable where ProductId='" + productIDTextBox.Text + "' ";
+
+            var confirmResult = MessageBox.Show("Are you sure You want to delete this Product ?","Confirm to Delete",MessageBoxButtons.YesNo);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Product Deleted Successfully");
+                    connection.Close();
+                    productNameTextBox.Text = string.Empty;
+                    productPriceTextBox.Text = string.Empty;
+                    productQuantityTextBox.Text = string.Empty;
+                    descriptionTextBox.Text = string.Empty;
+                    productCategoryComboBox.SelectedIndex = -1;
+                    populateGrid();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+           
+        }
     }
 }
