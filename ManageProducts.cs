@@ -94,8 +94,10 @@ namespace InventoryManagement
                 connection.Close();
                 productIDTextBox.Text = string.Empty;
                 productNameTextBox.Text = string.Empty;
+                productPriceTextBox.Text = string.Empty;
                 productQuantityTextBox.Text = string.Empty;
                 descriptionTextBox.Text = string.Empty;
+                searchProductTextBox.Text = string.Empty;
                 productCategoryComboBox.SelectedIndex = -1;
                 populateGrid();
             }
@@ -126,11 +128,14 @@ namespace InventoryManagement
 
         private void refreshProductBtn_Click(object sender, EventArgs e)
         {
+            productIDTextBox.Text = string.Empty;
             productNameTextBox.Text = string.Empty;
             productPriceTextBox.Text = string.Empty;
             productQuantityTextBox.Text = string.Empty;
             descriptionTextBox.Text = string.Empty;
+            searchProductTextBox.Text = string.Empty;
             productCategoryComboBox.SelectedIndex = -1;
+            populateGrid();
         }
 
         private void updateProductBtn_Click(object sender, EventArgs e)
@@ -143,10 +148,12 @@ namespace InventoryManagement
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Product Update Successful");
                 connection.Close();
+                productIDTextBox.Text = string.Empty;
                 productNameTextBox.Text = string.Empty;
                 productPriceTextBox.Text = string.Empty;
                 productQuantityTextBox.Text = string.Empty;
                 descriptionTextBox.Text = string.Empty;
+                searchProductTextBox.Text = string.Empty;
                 productCategoryComboBox.SelectedIndex = -1;
                 populateGrid();
 
@@ -173,10 +180,12 @@ namespace InventoryManagement
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Product Deleted Successfully");
                     connection.Close();
+                    productIDTextBox.Text = string.Empty;
                     productNameTextBox.Text = string.Empty;
                     productPriceTextBox.Text = string.Empty;
                     productQuantityTextBox.Text = string.Empty;
                     descriptionTextBox.Text = string.Empty;
+                    searchProductTextBox.Text = string.Empty;
                     productCategoryComboBox.SelectedIndex = -1;
                     populateGrid();
                 }
@@ -187,6 +196,38 @@ namespace InventoryManagement
                 }
             }
            
+        }
+
+        private void searchProductBtn_Click(object sender, EventArgs e)
+        {
+            if (searchProductTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Search by Product Name or any other details must be in the search field");
+                return;
+            }
+
+            try
+            {
+                var query = "select * from ProductTable where ProductId like   '%" + searchProductTextBox.Text + "%' or ProductName like '%" + searchProductTextBox.Text + "%' or ProductPrice like '%" + searchProductTextBox.Text + "%' or Description like '%" + searchProductTextBox.Text + "%' or ProductCategory like '%" + searchProductTextBox.Text + "%' ";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("Customer not Found");
+                    return;
+                }
+                productGridView.DataSource = dataSet.Tables[0];
+                connection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

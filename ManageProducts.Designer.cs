@@ -352,6 +352,7 @@ namespace InventoryManagement
             this.searchProductBtn.Text = "Search";
             this.searchProductBtn.ThemeAuthor = "Narwin";
             this.searchProductBtn.ThemeName = "MetroLite";
+            this.searchProductBtn.Click += new System.EventHandler(this.searchProductBtn_Click);
             // 
             // searchProductTextBox
             // 
