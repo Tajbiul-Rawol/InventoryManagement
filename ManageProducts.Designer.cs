@@ -366,6 +366,7 @@ namespace InventoryManagement
             this.productGridView.RowTemplate.Height = 25;
             this.productGridView.Size = new System.Drawing.Size(543, 295);
             this.productGridView.TabIndex = 18;
+            this.productGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productGridView_CellClick);
             // 
             // ManageProducts
             // 

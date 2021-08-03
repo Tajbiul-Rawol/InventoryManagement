@@ -86,7 +86,7 @@ namespace InventoryManagement
         {
             try
             {
-                var query = "insert into ProductTable values('" + productIDTextBox.Text + "','" + productNameTextBox.Text + "','" + productQuantityTextBox.Text + "','" + productPriceTextBox.Text + "','" +descriptionTextBox.Text + "','" + productCategoryComboBox.SelectedItem.ToString() + "')";
+                var query = "insert into ProductTable values('" + productIDTextBox.Text + "','" + productNameTextBox.Text + "','" + productQuantityTextBox.Text + "','" + productPriceTextBox.Text + "','" +descriptionTextBox.Text + "','" + productCategoryComboBox.SelectedValue.ToString() + "')";
                 SqlCommand cmd = new SqlCommand(query, connection);
                 connection.Open();
                 cmd.ExecuteNonQuery();
@@ -103,6 +103,24 @@ namespace InventoryManagement
             {
 
                 throw;
+            }
+        }
+
+        private void productGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow dataGridViewRow = productGridView.Rows[e.RowIndex];
+                productIDTextBox.Text = dataGridViewRow.Cells[0].Value.ToString();
+                if (productIDTextBox.Text != string.Empty)
+                {
+                    productIDTextBox.Enabled = false;
+                }
+                productNameTextBox.Text = dataGridViewRow.Cells[1].Value.ToString();
+                productPriceTextBox.Text = dataGridViewRow.Cells[2].Value.ToString();
+                productQuantityTextBox.Text = dataGridViewRow.Cells[3].Value.ToString();
+                descriptionTextBox.Text = dataGridViewRow.Cells[4].Value.ToString();
+                productCategoryComboBox.SelectedValue = dataGridViewRow.Cells[5].Value.ToString();
             }
         }
     }
