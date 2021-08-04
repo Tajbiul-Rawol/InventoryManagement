@@ -38,7 +38,7 @@ namespace InventoryManagement
             this.customerIDTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.orderIDTextBox = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.orderDateTime = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.productGridView = new System.Windows.Forms.DataGridView();
             this.searchCategoryComboBox = new System.Windows.Forms.ComboBox();
@@ -50,10 +50,20 @@ namespace InventoryManagement
             this.updateProductBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.deleteProductBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.addProductBtn = new MetroSet_UI.Controls.MetroSetButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.quantityTextBox = new System.Windows.Forms.TextBox();
+            this.addToOrderTextBox = new MetroSet_UI.Controls.MetroSetButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -140,12 +150,12 @@ namespace InventoryManagement
             this.orderIDTextBox.Size = new System.Drawing.Size(191, 23);
             this.orderIDTextBox.TabIndex = 20;
             // 
-            // dateTimePicker1
+            // orderDateTime
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(119, 137);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(191, 23);
-            this.dateTimePicker1.TabIndex = 24;
+            this.orderDateTime.Location = new System.Drawing.Point(119, 137);
+            this.orderDateTime.Name = "orderDateTime";
+            this.orderDateTime.Size = new System.Drawing.Size(191, 23);
+            this.orderDateTime.TabIndex = 24;
             // 
             // label6
             // 
@@ -163,7 +173,7 @@ namespace InventoryManagement
             this.productGridView.Location = new System.Drawing.Point(417, 115);
             this.productGridView.Name = "productGridView";
             this.productGridView.RowTemplate.Height = 25;
-            this.productGridView.Size = new System.Drawing.Size(436, 206);
+            this.productGridView.Size = new System.Drawing.Size(436, 195);
             this.productGridView.TabIndex = 27;
             // 
             // searchCategoryComboBox
@@ -196,7 +206,7 @@ namespace InventoryManagement
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.orderIDTextBox);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.orderDateTime);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.customerIDTextBox);
             this.panel2.Location = new System.Drawing.Point(12, 325);
@@ -245,6 +255,7 @@ namespace InventoryManagement
             this.refreshProductBtn.Text = "Refresh";
             this.refreshProductBtn.ThemeAuthor = "Narwin";
             this.refreshProductBtn.ThemeName = "MetroLite";
+            this.refreshProductBtn.Click += new System.EventHandler(this.refreshProductBtn_Click);
             // 
             // updateProductBtn
             // 
@@ -324,11 +335,98 @@ namespace InventoryManagement
             this.addProductBtn.ThemeAuthor = "Narwin";
             this.addProductBtn.ThemeName = "MetroLite";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Num,
+            this.Product,
+            this.Quantity,
+            this.UPrice,
+            this.TotPrice});
+            this.dataGridView1.Location = new System.Drawing.Point(417, 352);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(436, 195);
+            this.dataGridView1.TabIndex = 30;
+            // 
+            // Num
+            // 
+            this.Num.HeaderText = "Num";
+            this.Num.Name = "Num";
+            // 
+            // Product
+            // 
+            this.Product.HeaderText = "Product";
+            this.Product.Name = "Product";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // UPrice
+            // 
+            this.UPrice.HeaderText = "UPrice";
+            this.UPrice.Name = "UPrice";
+            // 
+            // TotPrice
+            // 
+            this.TotPrice.HeaderText = "TotalPrice";
+            this.TotPrice.Name = "TotPrice";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(451, 325);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 15);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Quantity";
+            // 
+            // quantityTextBox
+            // 
+            this.quantityTextBox.Location = new System.Drawing.Point(521, 325);
+            this.quantityTextBox.Name = "quantityTextBox";
+            this.quantityTextBox.Size = new System.Drawing.Size(191, 23);
+            this.quantityTextBox.TabIndex = 32;
+            // 
+            // addToOrderTextBox
+            // 
+            this.addToOrderTextBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.addToOrderTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.addToOrderTextBox.DisabledForeColor = System.Drawing.Color.Gray;
+            this.addToOrderTextBox.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.addToOrderTextBox.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.addToOrderTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.addToOrderTextBox.HoverTextColor = System.Drawing.Color.White;
+            this.addToOrderTextBox.IsDerivedStyle = true;
+            this.addToOrderTextBox.Location = new System.Drawing.Point(732, 325);
+            this.addToOrderTextBox.Name = "addToOrderTextBox";
+            this.addToOrderTextBox.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.addToOrderTextBox.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.addToOrderTextBox.NormalTextColor = System.Drawing.Color.White;
+            this.addToOrderTextBox.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.addToOrderTextBox.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.addToOrderTextBox.PressTextColor = System.Drawing.Color.White;
+            this.addToOrderTextBox.Size = new System.Drawing.Size(98, 21);
+            this.addToOrderTextBox.Style = MetroSet_UI.Enums.Style.Light;
+            this.addToOrderTextBox.StyleManager = null;
+            this.addToOrderTextBox.TabIndex = 33;
+            this.addToOrderTextBox.Text = "Refresh";
+            this.addToOrderTextBox.ThemeAuthor = "Narwin";
+            this.addToOrderTextBox.ThemeName = "MetroLite";
+            // 
             // ManageOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(871, 578);
+            this.Controls.Add(this.addToOrderTextBox);
+            this.Controls.Add(this.quantityTextBox);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.productGridView);
@@ -346,6 +444,7 @@ namespace InventoryManagement
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,7 +461,7 @@ namespace InventoryManagement
         private System.Windows.Forms.TextBox customerIDTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox orderIDTextBox;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker orderDateTime;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView productGridView;
         private System.Windows.Forms.ComboBox searchCategoryComboBox;
@@ -374,5 +473,14 @@ namespace InventoryManagement
         private MetroSet_UI.Controls.MetroSetButton addProductBtn;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox customerNameTextBox;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox quantityTextBox;
+        private MetroSet_UI.Controls.MetroSetButton addToOrderTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Num;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotPrice;
     }
 }

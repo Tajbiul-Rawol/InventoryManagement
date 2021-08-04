@@ -131,11 +131,21 @@ namespace InventoryManagement
             {
                 var gridView = (DataGridView)sender;
                 customerIDTextBox.Text = gridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                customerNameTextBox.Text = gridView.Rows[e.RowIndex].Cells[1].Value.ToString();
                 if (customerIDTextBox.Text != string.Empty)
                 {
                     customerIDTextBox.Enabled = false;
                 }
             }
+        }
+
+        private void refreshProductBtn_Click(object sender, EventArgs e)
+        {
+            orderIDTextBox.Text = string.Empty;
+            customerIDTextBox.Text = string.Empty;
+            customerNameTextBox.Text = string.Empty;
+            orderDateTime.Value = DateTime.Today;
+            populateCustomerGrid();
         }
     }
 }
