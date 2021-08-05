@@ -147,5 +147,77 @@ namespace InventoryManagement
             orderDateTime.Value = DateTime.Today;
             populateCustomerGrid();
         }
+
+
+
+        int num, productID = 0;
+        int totalPrice, quantity;
+        string product, unitPrice;
+        int flag = 0;
+
+        int selectedRow = 0;
+        private void ordersGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                selectedRow = e.RowIndex;
+                var gridView = (DataGridView)sender;
+                product = gridView.Rows[selectedRow].Cells[1].Value.ToString();
+                unitPrice = gridView.Rows[selectedRow].Cells[3].Value.ToString();
+                flag = 1;
+            }
+        }
+
+        private void deleteToOrderButton_Click(object sender, EventArgs e)
+        {
+            if (product == null && flag == 0)
+            {
+                MessageBox.Show("Select an product to remove from the order list");
+                return;
+            }
+
+            ordersGridView.AllowUserToAddRows = false;
+            ordersGridView.Rows.RemoveAt(selectedRow);
+            row--;
+            MessageBox.Show("deleted");
+        }
+
+        private void productGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                var gridView = (DataGridView)sender;
+                productID = Convert.ToInt32(gridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+                product = gridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+                unitPrice = gridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+                flag = 1;
+                
+            }
+
+        }
+
+        int row = -1;
+        private void addToOrderButton_Click(object sender, EventArgs e)
+        {
+            if (quantityTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Please Enter Quantity of products");
+            }
+            else if (flag == 0)
+            {
+                MessageBox.Show("Please select a product first");
+            }
+            else
+            {
+                row++;
+                num += 1;
+                quantity = Convert.ToInt32(quantityTextBox.Text);
+                var uPrice = Convert.ToInt32(unitPrice);
+                totalPrice = quantity * uPrice;
+                ordersGridView.Rows.Add(num, product, quantity, uPrice, totalPrice);
+
+            }
+        }
+
     }
 }
