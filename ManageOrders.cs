@@ -175,13 +175,30 @@ namespace InventoryManagement
                 MessageBox.Show("Select an product to remove from the order list");
                 return;
             }
+            var confirmMessage = MessageBox.Show("Are you sure you want to remove this category?", "Cofirm delete", MessageBoxButtons.YesNo);
 
-            ordersGridView.AllowUserToAddRows = false;
-            ordersGridView.Rows.RemoveAt(selectedRow);
-            row--;
-            MessageBox.Show("deleted");
+            if (confirmMessage == DialogResult.Yes)
+            {
+                connection.Open();
+                int stockQuantity = stock;
+                var query = "update ProductTable set ProductQuantity='"+ stockQuantity + "' where ProductId='"+productID+"' ";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                populateProductGrid();
+                ordersGridView.AllowUserToAddRows = false;
+                ordersGridView.Rows.RemoveAt(selectedRow);
+                row--;
+                sum -= totalPrice;
+                totAmountlbl.Text = "BDT " + sum.ToString();
+                MessageBox.Show("deleted");
+
+               
+            }
+                
         }
 
+        int stock = 0;
         private void productGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -189,6 +206,7 @@ namespace InventoryManagement
                 var gridView = (DataGridView)sender;
                 productID = Convert.ToInt32(gridView.Rows[e.RowIndex].Cells[0].Value.ToString());
                 product = gridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+                stock = Convert.ToInt32(gridView.Rows[e.RowIndex].Cells[2].Value.ToString());
                 unitPrice = gridView.Rows[e.RowIndex].Cells[3].Value.ToString();
                 flag = 1;
                 
@@ -197,6 +215,7 @@ namespace InventoryManagement
         }
 
         int row = -1;
+        int sum = 0;
         private void addToOrderButton_Click(object sender, EventArgs e)
         {
             if (quantityTextBox.Text == string.Empty)
@@ -206,6 +225,10 @@ namespace InventoryManagement
             else if (flag == 0)
             {
                 MessageBox.Show("Please select a product first");
+            }
+            else if (Convert.ToInt32(quantityTextBox.Text) > stock)
+            {
+                MessageBox.Show("Order quantity cannot exceed Stock quantity!");
             }
             else
             {
@@ -217,6 +240,21 @@ namespace InventoryManagement
                 ordersGridView.Rows.Add(num, product, quantity, uPrice, totalPrice);
 
             }
+
+            sum += totalPrice;
+            totAmountlbl.Text = "BDT " + sum.ToString();
+            updateQuantity();
+        }
+
+        private void updateQuantity()
+        {
+            connection.Open();
+            int newQuantity = stock - Convert.ToInt32(quantityTextBox.Text);
+            var query = "update ProductTable set ProductQuantity='"+newQuantity+"' where ProductId='"+productID+"' ";
+            SqlCommand cmd = new SqlCommand(query,connection);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            populateProductGrid();
         }
 
     }

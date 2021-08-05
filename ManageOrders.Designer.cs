@@ -60,6 +60,8 @@ namespace InventoryManagement
             this.quantityTextBox = new System.Windows.Forms.TextBox();
             this.addToOrderButton = new MetroSet_UI.Controls.MetroSetButton();
             this.deleteToOrderButton = new MetroSet_UI.Controls.MetroSetButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.totAmountlbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).BeginInit();
@@ -449,11 +451,33 @@ namespace InventoryManagement
             this.deleteToOrderButton.ThemeName = "MetroLite";
             this.deleteToOrderButton.Click += new System.EventHandler(this.deleteToOrderButton_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(505, 550);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(124, 25);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "Total Amount";
+            // 
+            // totAmountlbl
+            // 
+            this.totAmountlbl.AutoSize = true;
+            this.totAmountlbl.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.totAmountlbl.Location = new System.Drawing.Point(635, 550);
+            this.totAmountlbl.Name = "totAmountlbl";
+            this.totAmountlbl.Size = new System.Drawing.Size(48, 25);
+            this.totAmountlbl.TabIndex = 36;
+            this.totAmountlbl.Text = "BDT";
+            // 
             // ManageOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 578);
+            this.ClientSize = new System.Drawing.Size(890, 582);
+            this.Controls.Add(this.totAmountlbl);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.deleteToOrderButton);
             this.Controls.Add(this.addToOrderButton);
             this.Controls.Add(this.quantityTextBox);
@@ -515,5 +539,7 @@ namespace InventoryManagement
         private System.Windows.Forms.DataGridViewTextBoxColumn UPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotPrice;
         private MetroSet_UI.Controls.MetroSetButton deleteToOrderButton;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label totAmountlbl;
     }
 }
