@@ -48,23 +48,29 @@ namespace InventoryManagement
             populateViewOrdersGrid();
         }
 
+        int selectedIndex = 0;
         private void viewOrdersGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+            if (e.RowIndex != -1)
             {
-               printDocument1.Print();
+                selectedIndex = e.RowIndex;
+                if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    printDocument1.Print();
+                }
             }
 
         }
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
-            string header = "Order Summary";
-            Font font = new Font("Arial",25);
-            SolidBrush brush = new SolidBrush(Color.Black);
-            float x = 150.0F;
-            float y = 150.0F;
-            e.Graphics.DrawString(header, font, brush, x, y);
+            e.Graphics.DrawString("Order Summary", new Font("Arial", 25, FontStyle.Bold), new SolidBrush(Color.Red), 300.0F, 0.0F);
+            e.Graphics.DrawString("Order ID: "+viewOrdersGridView.Rows[selectedIndex].Cells[0].Value.ToString(), new Font("Arial", 25, FontStyle.Regular), new SolidBrush(Color.Black), 80.0F, 150.0F);
+            e.Graphics.DrawString("Customer ID: " + viewOrdersGridView.Rows[selectedIndex].Cells[1].Value.ToString(), new Font("Arial", 25, FontStyle.Regular), new SolidBrush(Color.Black), 80.0F, 190.0F);
+            e.Graphics.DrawString("Customer Name: " + viewOrdersGridView.Rows[selectedIndex].Cells[2].Value.ToString(), new Font("Arial", 25, FontStyle.Regular), new SolidBrush(Color.Black), 80.0F, 230.0F);
+            e.Graphics.DrawString("Order Date: " + viewOrdersGridView.Rows[selectedIndex].Cells[3].Value.ToString(), new Font("Arial", 25, FontStyle.Regular), new SolidBrush(Color.Black), 80.0F, 270.0F);
+            e.Graphics.DrawString("Total Amount: " + viewOrdersGridView.Rows[selectedIndex].Cells[4].Value.ToString(), new Font("Arial", 25, FontStyle.Regular), new SolidBrush(Color.Black), 80.0F, 310.0F);
+            e.Graphics.DrawString("Quantity: " + viewOrdersGridView.Rows[selectedIndex].Cells[5].Value.ToString(), new Font("Arial", 25, FontStyle.Regular), new SolidBrush(Color.Black), 80.0F, 350.0F);
         }
     }
 }
