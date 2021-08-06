@@ -154,6 +154,7 @@ namespace InventoryManagement
         int totalPrice, quantity;
         string product, unitPrice, selectedProduct;
         int flag = 0;
+        int totalQuantity = 0;
         int selectedRow = 0;
         private void ordersGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -206,6 +207,7 @@ namespace InventoryManagement
                     ordersGridView.Rows.RemoveAt(selectedRow);
                     row--;
                     sum -= totalPrice;
+                    totalQuantity -= quantity;
                     totAmountlbl.Text = "BDT " + sum.ToString();
                     MessageBox.Show("deleted");
                     populateProductGrid();
@@ -248,7 +250,7 @@ namespace InventoryManagement
                 return;
             }
 
-            var query = "insert into OrderTable values('" + orderIDTextBox.Text + "','" + customerIDTextBox.Text + "','" + customerNameTextBox.Text + "','" + Convert.ToDateTime(orderDateTime.Text) + "', '" + totalPrice + "','" + quantity + "')";
+            var query = "insert into OrderTable values('" + orderIDTextBox.Text + "','" + customerIDTextBox.Text + "','" + customerNameTextBox.Text + "','" + Convert.ToDateTime(orderDateTime.Text) + "', '" + totalPrice + "','" + totalQuantity + "')";
             connection.Open();
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -293,6 +295,7 @@ namespace InventoryManagement
                 var uPrice = Convert.ToInt32(unitPrice);
                 totalPrice = quantity * uPrice;
                 ordersGridView.Rows.Add(num, productID, product, quantity, uPrice, totalPrice);
+                totalQuantity += quantity;
           
             }
 
