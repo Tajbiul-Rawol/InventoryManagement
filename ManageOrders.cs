@@ -150,11 +150,10 @@ namespace InventoryManagement
 
 
 
-        int num, productID = 0;
+        int num, selectedID, productID = 0;
         int totalPrice, quantity;
-        string product, unitPrice;
+        string product, unitPrice, selectedProduct;
         int flag = 0;
-
         int selectedRow = 0;
         private void ordersGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -162,15 +161,20 @@ namespace InventoryManagement
             {
                 selectedRow = e.RowIndex;
                 var gridView = (DataGridView)sender;
-                product = gridView.Rows[selectedRow].Cells[1].Value.ToString();
-                unitPrice = gridView.Rows[selectedRow].Cells[3].Value.ToString();
+                //selectedID = productID;
+                productID = Convert.ToInt32(gridView.Rows[selectedRow].Cells[1].Value.ToString());
+                product = gridView.Rows[selectedRow].Cells[2].Value.ToString();
+                selectedProduct = product;
+                quantityTextBox.Text = gridView.Rows[selectedRow].Cells[3].Value.ToString();
+                unitPrice = gridView.Rows[selectedRow].Cells[4].Value.ToString();
                 flag = 1;
             }
         }
 
         private void deleteToOrderButton_Click(object sender, EventArgs e)
         {
-            if (product == null && flag == 0)
+
+            if (product == null && flag == 0 || selectedRow == -1)
             {
                 MessageBox.Show("Select an product to remove from the order list");
                 return;
@@ -179,21 +183,35 @@ namespace InventoryManagement
 
             if (confirmMessage == DialogResult.Yes)
             {
-                connection.Open();
-                int stockQuantity = stock;
-                var query = "update ProductTable set ProductQuantity='"+ stockQuantity + "' where ProductId='"+productID+"' ";
-                SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
-                connection.Close();
-                populateProductGrid();
-                ordersGridView.AllowUserToAddRows = false;
-                ordersGridView.Rows.RemoveAt(selectedRow);
-                row--;
-                sum -= totalPrice;
-                totAmountlbl.Text = "BDT " + sum.ToString();
-                MessageBox.Show("deleted");
 
-               
+                if (product == selectedProduct)
+                {
+                    for (int row = 0; row < productGridView.Rows.Count; row++)
+                    {
+                        if (Convert.ToInt32(productGridView.Rows[row].Cells[0].Value.ToString()) == productID)
+                        {
+                            stock = Convert.ToInt32(productGridView.Rows[row].Cells[2].Value.ToString());
+                            break;
+                        }
+                        continue;
+                    }
+                    connection.Open();
+                    int stockQuantity = stock + Convert.ToInt32(quantityTextBox.Text);                
+                    //MessageBox.Show(stockQuantity.ToString());
+                    var query = "update ProductTable set ProductQuantity='" + stockQuantity + "' where ProductId='" + productID + "' ";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    ordersGridView.AllowUserToAddRows = false;
+                    ordersGridView.Rows.RemoveAt(selectedRow);
+                    row--;
+                    sum -= totalPrice;
+                    totAmountlbl.Text = "BDT " + sum.ToString();
+                    MessageBox.Show("deleted");
+                    populateProductGrid();
+                }
+                
+
             }
                 
         }
@@ -211,6 +229,11 @@ namespace InventoryManagement
                 flag = 1;
                 
             }
+
+        }
+
+        private void insertOrdersBtn_Click(object sender, EventArgs e)
+        {
 
         }
 
@@ -237,19 +260,20 @@ namespace InventoryManagement
                 quantity = Convert.ToInt32(quantityTextBox.Text);
                 var uPrice = Convert.ToInt32(unitPrice);
                 totalPrice = quantity * uPrice;
-                ordersGridView.Rows.Add(num, product, quantity, uPrice, totalPrice);
-
+                ordersGridView.Rows.Add(num, productID, product, quantity, uPrice, totalPrice);
+          
             }
 
             sum += totalPrice;
             totAmountlbl.Text = "BDT " + sum.ToString();
             updateQuantity();
+            quantityTextBox.Text = string.Empty;
         }
-
+        int newQuantity = 0;
         private void updateQuantity()
         {
             connection.Open();
-            int newQuantity = stock - Convert.ToInt32(quantityTextBox.Text);
+            newQuantity = stock - Convert.ToInt32(quantityTextBox.Text);
             var query = "update ProductTable set ProductQuantity='"+newQuantity+"' where ProductId='"+productID+"' ";
             SqlCommand cmd = new SqlCommand(query,connection);
             cmd.ExecuteNonQuery();

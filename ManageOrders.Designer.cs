@@ -47,21 +47,21 @@ namespace InventoryManagement
             this.label8 = new System.Windows.Forms.Label();
             this.customerNameTextBox = new System.Windows.Forms.TextBox();
             this.refreshProductBtn = new MetroSet_UI.Controls.MetroSetButton();
-            this.updateProductBtn = new MetroSet_UI.Controls.MetroSetButton();
-            this.deleteProductBtn = new MetroSet_UI.Controls.MetroSetButton();
-            this.addProductBtn = new MetroSet_UI.Controls.MetroSetButton();
+            this.viewOrdersBtn = new MetroSet_UI.Controls.MetroSetButton();
+            this.insertOrdersBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.ordersGridView = new System.Windows.Forms.DataGridView();
-            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.quantityTextBox = new System.Windows.Forms.TextBox();
             this.addToOrderButton = new MetroSet_UI.Controls.MetroSetButton();
             this.deleteToOrderButton = new MetroSet_UI.Controls.MetroSetButton();
             this.label10 = new System.Windows.Forms.Label();
             this.totAmountlbl = new System.Windows.Forms.Label();
+            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).BeginInit();
@@ -134,7 +134,7 @@ namespace InventoryManagement
             // 
             this.customerIDTextBox.Location = new System.Drawing.Point(120, 57);
             this.customerIDTextBox.Name = "customerIDTextBox";
-            this.customerIDTextBox.Size = new System.Drawing.Size(191, 23);
+            this.customerIDTextBox.Size = new System.Drawing.Size(201, 23);
             this.customerIDTextBox.TabIndex = 22;
             // 
             // label5
@@ -150,14 +150,14 @@ namespace InventoryManagement
             // 
             this.orderIDTextBox.Location = new System.Drawing.Point(120, 17);
             this.orderIDTextBox.Name = "orderIDTextBox";
-            this.orderIDTextBox.Size = new System.Drawing.Size(191, 23);
+            this.orderIDTextBox.Size = new System.Drawing.Size(201, 23);
             this.orderIDTextBox.TabIndex = 20;
             // 
             // orderDateTime
             // 
-            this.orderDateTime.Location = new System.Drawing.Point(119, 137);
+            this.orderDateTime.Location = new System.Drawing.Point(120, 137);
             this.orderDateTime.Name = "orderDateTime";
-            this.orderDateTime.Size = new System.Drawing.Size(191, 23);
+            this.orderDateTime.Size = new System.Drawing.Size(201, 23);
             this.orderDateTime.TabIndex = 24;
             // 
             // label6
@@ -204,9 +204,8 @@ namespace InventoryManagement
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.customerNameTextBox);
             this.panel2.Controls.Add(this.refreshProductBtn);
-            this.panel2.Controls.Add(this.updateProductBtn);
-            this.panel2.Controls.Add(this.deleteProductBtn);
-            this.panel2.Controls.Add(this.addProductBtn);
+            this.panel2.Controls.Add(this.viewOrdersBtn);
+            this.panel2.Controls.Add(this.insertOrdersBtn);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.orderIDTextBox);
             this.panel2.Controls.Add(this.label4);
@@ -215,7 +214,7 @@ namespace InventoryManagement
             this.panel2.Controls.Add(this.customerIDTextBox);
             this.panel2.Location = new System.Drawing.Point(12, 325);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(359, 241);
+            this.panel2.Size = new System.Drawing.Size(335, 222);
             this.panel2.TabIndex = 29;
             // 
             // label8
@@ -231,7 +230,7 @@ namespace InventoryManagement
             // 
             this.customerNameTextBox.Location = new System.Drawing.Point(119, 102);
             this.customerNameTextBox.Name = "customerNameTextBox";
-            this.customerNameTextBox.Size = new System.Drawing.Size(191, 23);
+            this.customerNameTextBox.Size = new System.Drawing.Size(202, 23);
             this.customerNameTextBox.TabIndex = 26;
             // 
             // refreshProductBtn
@@ -244,7 +243,7 @@ namespace InventoryManagement
             this.refreshProductBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.refreshProductBtn.HoverTextColor = System.Drawing.Color.White;
             this.refreshProductBtn.IsDerivedStyle = true;
-            this.refreshProductBtn.Location = new System.Drawing.Point(120, 206);
+            this.refreshProductBtn.Location = new System.Drawing.Point(223, 173);
             this.refreshProductBtn.Name = "refreshProductBtn";
             this.refreshProductBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.refreshProductBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -261,83 +260,58 @@ namespace InventoryManagement
             this.refreshProductBtn.ThemeName = "MetroLite";
             this.refreshProductBtn.Click += new System.EventHandler(this.refreshProductBtn_Click);
             // 
-            // updateProductBtn
+            // viewOrdersBtn
             // 
-            this.updateProductBtn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.updateProductBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.updateProductBtn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.updateProductBtn.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.updateProductBtn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.updateProductBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.updateProductBtn.HoverTextColor = System.Drawing.Color.White;
-            this.updateProductBtn.IsDerivedStyle = true;
-            this.updateProductBtn.Location = new System.Drawing.Point(223, 173);
-            this.updateProductBtn.Name = "updateProductBtn";
-            this.updateProductBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.updateProductBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.updateProductBtn.NormalTextColor = System.Drawing.Color.White;
-            this.updateProductBtn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.updateProductBtn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.updateProductBtn.PressTextColor = System.Drawing.Color.White;
-            this.updateProductBtn.Size = new System.Drawing.Size(98, 21);
-            this.updateProductBtn.Style = MetroSet_UI.Enums.Style.Light;
-            this.updateProductBtn.StyleManager = null;
-            this.updateProductBtn.TabIndex = 12;
-            this.updateProductBtn.Text = "Update";
-            this.updateProductBtn.ThemeAuthor = "Narwin";
-            this.updateProductBtn.ThemeName = "MetroLite";
+            this.viewOrdersBtn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.viewOrdersBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.viewOrdersBtn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.viewOrdersBtn.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.viewOrdersBtn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.viewOrdersBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.viewOrdersBtn.HoverTextColor = System.Drawing.Color.White;
+            this.viewOrdersBtn.IsDerivedStyle = true;
+            this.viewOrdersBtn.Location = new System.Drawing.Point(119, 173);
+            this.viewOrdersBtn.Name = "viewOrdersBtn";
+            this.viewOrdersBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.viewOrdersBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.viewOrdersBtn.NormalTextColor = System.Drawing.Color.White;
+            this.viewOrdersBtn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.viewOrdersBtn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.viewOrdersBtn.PressTextColor = System.Drawing.Color.White;
+            this.viewOrdersBtn.Size = new System.Drawing.Size(98, 21);
+            this.viewOrdersBtn.Style = MetroSet_UI.Enums.Style.Light;
+            this.viewOrdersBtn.StyleManager = null;
+            this.viewOrdersBtn.TabIndex = 12;
+            this.viewOrdersBtn.Text = "View Orders";
+            this.viewOrdersBtn.ThemeAuthor = "Narwin";
+            this.viewOrdersBtn.ThemeName = "MetroLite";
             // 
-            // deleteProductBtn
+            // insertOrdersBtn
             // 
-            this.deleteProductBtn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.deleteProductBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.deleteProductBtn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.deleteProductBtn.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.deleteProductBtn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.deleteProductBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.deleteProductBtn.HoverTextColor = System.Drawing.Color.White;
-            this.deleteProductBtn.IsDerivedStyle = true;
-            this.deleteProductBtn.Location = new System.Drawing.Point(119, 173);
-            this.deleteProductBtn.Name = "deleteProductBtn";
-            this.deleteProductBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.deleteProductBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.deleteProductBtn.NormalTextColor = System.Drawing.Color.White;
-            this.deleteProductBtn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.deleteProductBtn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.deleteProductBtn.PressTextColor = System.Drawing.Color.White;
-            this.deleteProductBtn.Size = new System.Drawing.Size(98, 21);
-            this.deleteProductBtn.Style = MetroSet_UI.Enums.Style.Light;
-            this.deleteProductBtn.StyleManager = null;
-            this.deleteProductBtn.TabIndex = 11;
-            this.deleteProductBtn.Text = "Delete";
-            this.deleteProductBtn.ThemeAuthor = "Narwin";
-            this.deleteProductBtn.ThemeName = "MetroLite";
-            // 
-            // addProductBtn
-            // 
-            this.addProductBtn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.addProductBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.addProductBtn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.addProductBtn.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.addProductBtn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.addProductBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.addProductBtn.HoverTextColor = System.Drawing.Color.White;
-            this.addProductBtn.IsDerivedStyle = true;
-            this.addProductBtn.Location = new System.Drawing.Point(15, 173);
-            this.addProductBtn.Name = "addProductBtn";
-            this.addProductBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.addProductBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.addProductBtn.NormalTextColor = System.Drawing.Color.White;
-            this.addProductBtn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.addProductBtn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.addProductBtn.PressTextColor = System.Drawing.Color.White;
-            this.addProductBtn.Size = new System.Drawing.Size(98, 21);
-            this.addProductBtn.Style = MetroSet_UI.Enums.Style.Light;
-            this.addProductBtn.StyleManager = null;
-            this.addProductBtn.TabIndex = 10;
-            this.addProductBtn.Text = "Add";
-            this.addProductBtn.ThemeAuthor = "Narwin";
-            this.addProductBtn.ThemeName = "MetroLite";
+            this.insertOrdersBtn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.insertOrdersBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.insertOrdersBtn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.insertOrdersBtn.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.insertOrdersBtn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.insertOrdersBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.insertOrdersBtn.HoverTextColor = System.Drawing.Color.White;
+            this.insertOrdersBtn.IsDerivedStyle = true;
+            this.insertOrdersBtn.Location = new System.Drawing.Point(15, 173);
+            this.insertOrdersBtn.Name = "insertOrdersBtn";
+            this.insertOrdersBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.insertOrdersBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.insertOrdersBtn.NormalTextColor = System.Drawing.Color.White;
+            this.insertOrdersBtn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.insertOrdersBtn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.insertOrdersBtn.PressTextColor = System.Drawing.Color.White;
+            this.insertOrdersBtn.Size = new System.Drawing.Size(98, 21);
+            this.insertOrdersBtn.Style = MetroSet_UI.Enums.Style.Light;
+            this.insertOrdersBtn.StyleManager = null;
+            this.insertOrdersBtn.TabIndex = 11;
+            this.insertOrdersBtn.Text = "Insert Order";
+            this.insertOrdersBtn.ThemeAuthor = "Narwin";
+            this.insertOrdersBtn.ThemeName = "MetroLite";
+            this.insertOrdersBtn.Click += new System.EventHandler(this.insertOrdersBtn_Click);
             // 
             // ordersGridView
             // 
@@ -345,41 +319,17 @@ namespace InventoryManagement
             this.ordersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ordersGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Num,
+            this.ProductID,
             this.Product,
             this.Quantity,
             this.UPrice,
-            this.TotPrice});
+            this.TotalAmount});
             this.ordersGridView.Location = new System.Drawing.Point(417, 352);
             this.ordersGridView.Name = "ordersGridView";
             this.ordersGridView.RowTemplate.Height = 25;
             this.ordersGridView.Size = new System.Drawing.Size(454, 195);
             this.ordersGridView.TabIndex = 30;
             this.ordersGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ordersGridView_CellClick);
-            // 
-            // Num
-            // 
-            this.Num.HeaderText = "Num";
-            this.Num.Name = "Num";
-            // 
-            // Product
-            // 
-            this.Product.HeaderText = "Product";
-            this.Product.Name = "Product";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // UPrice
-            // 
-            this.UPrice.HeaderText = "UPrice";
-            this.UPrice.Name = "UPrice";
-            // 
-            // TotPrice
-            // 
-            this.TotPrice.HeaderText = "TotalPrice";
-            this.TotPrice.Name = "TotPrice";
             // 
             // label9
             // 
@@ -471,6 +421,36 @@ namespace InventoryManagement
             this.totAmountlbl.TabIndex = 36;
             this.totAmountlbl.Text = "BDT";
             // 
+            // Num
+            // 
+            this.Num.HeaderText = "Num";
+            this.Num.Name = "Num";
+            // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "ProductID";
+            this.ProductID.Name = "ProductID";
+            // 
+            // Product
+            // 
+            this.Product.HeaderText = "Product";
+            this.Product.Name = "Product";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // UPrice
+            // 
+            this.UPrice.HeaderText = "UPrice";
+            this.UPrice.Name = "UPrice";
+            // 
+            // TotalAmount
+            // 
+            this.TotalAmount.HeaderText = "TotalAmount";
+            this.TotalAmount.Name = "TotalAmount";
+            // 
             // ManageOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -524,22 +504,22 @@ namespace InventoryManagement
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel2;
         private MetroSet_UI.Controls.MetroSetButton refreshProductBtn;
-        private MetroSet_UI.Controls.MetroSetButton updateProductBtn;
-        private MetroSet_UI.Controls.MetroSetButton deleteProductBtn;
-        private MetroSet_UI.Controls.MetroSetButton addProductBtn;
+        private MetroSet_UI.Controls.MetroSetButton viewOrdersBtn;
+        private MetroSet_UI.Controls.MetroSetButton insertOrdersBtn;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox customerNameTextBox;
         private System.Windows.Forms.DataGridView ordersGridView;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox quantityTextBox;
         private MetroSet_UI.Controls.MetroSetButton addToOrderButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Num;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotPrice;
         private MetroSet_UI.Controls.MetroSetButton deleteToOrderButton;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label totAmountlbl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Num;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
     }
 }
