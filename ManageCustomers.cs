@@ -144,12 +144,47 @@ namespace InventoryManagement
                 customerNameTextBox.Text = dataGridViewRow.Cells[1].Value.ToString();
                 customerPhoneTextBox.Text = dataGridViewRow.Cells[2].Value.ToString();
                 customerEmailTextBox.Text = dataGridViewRow.Cells[3].Value.ToString();
-
+                var countquery = "select Count(*) from OrderTable where CustId='" + customerIDTextBox.Text + "' ";
+                var totalAmountquery = "select Sum(TotalAmount) from OrderTable where CustId='" + customerIDTextBox.Text + "' ";
+                var orderDatequery = "select Max(OrderDate) from OrderTable where CustId='" + customerIDTextBox.Text + "' ";
+                showOrderData(countquery);
+                showTotalAmount(totalAmountquery);
+                showOrderDate(orderDatequery);
             }
 
         }
 
-       
+        private void showOrderData(string query)
+        {
+            connection.Open();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(query,connection);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            orderLbl.Text = dataTable.Rows[0][0].ToString();
+            connection.Close();
+        }
+        private void showTotalAmount(string query)
+        {
+            connection.Open();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            amountsLbl.Text = dataTable.Rows[0][0].ToString();
+            connection.Close();
+        }
+        private void showOrderDate(string query)
+        {
+            connection.Open();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            dateLbl.Text = dataTable.Rows[0][0].ToString();
+            connection.Close();
+        }
+
+
+
+
         private void deleteCustomerBtn_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show("Are you sure You want to delete this customer?","Confirm Delete",MessageBoxButtons.YesNo);
