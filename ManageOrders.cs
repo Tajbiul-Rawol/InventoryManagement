@@ -154,7 +154,7 @@ namespace InventoryManagement
 
 
 
-        int num, selectedID, productID = 0;
+        int num, productID = 0;
         int totalPrice, quantity;
         string product, unitPrice, selectedProduct;
         int flag = 0;

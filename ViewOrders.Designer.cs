@@ -29,11 +29,14 @@ namespace InventoryManagement
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewOrders));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.viewOrdersGridView = new System.Windows.Forms.DataGridView();
             this.viewOrdersBtn = new MetroSet_UI.Controls.MetroSetButton();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewOrdersGridView)).BeginInit();
             this.SuspendLayout();
@@ -78,6 +81,7 @@ namespace InventoryManagement
             this.viewOrdersGridView.RowTemplate.Height = 25;
             this.viewOrdersGridView.Size = new System.Drawing.Size(560, 365);
             this.viewOrdersGridView.TabIndex = 28;
+            this.viewOrdersGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.viewOrdersGridView_CellClick);
             // 
             // viewOrdersBtn
             // 
@@ -105,6 +109,17 @@ namespace InventoryManagement
             this.viewOrdersBtn.ThemeAuthor = "Narwin";
             this.viewOrdersBtn.ThemeName = "MetroLite";
             // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // ViewOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -130,5 +145,7 @@ namespace InventoryManagement
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView viewOrdersGridView;
         private MetroSet_UI.Controls.MetroSetButton viewOrdersBtn;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

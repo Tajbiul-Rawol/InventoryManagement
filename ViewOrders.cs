@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing.Printing;
+
 namespace InventoryManagement
 {
     public partial class ViewOrders : Form
@@ -44,6 +46,25 @@ namespace InventoryManagement
         private void ViewOrders_Load(object sender, EventArgs e)
         {
             populateViewOrdersGrid();
+        }
+
+        private void viewOrdersGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+            {
+               printDocument1.Print();
+            }
+
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            string header = "Order Summary";
+            Font font = new Font("Arial",25);
+            SolidBrush brush = new SolidBrush(Color.Black);
+            float x = 150.0F;
+            float y = 150.0F;
+            e.Graphics.DrawString(header, font, brush, x, y);
         }
     }
 }

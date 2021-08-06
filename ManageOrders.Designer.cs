@@ -62,6 +62,7 @@ namespace InventoryManagement
             this.deleteToOrderButton = new MetroSet_UI.Controls.MetroSetButton();
             this.label10 = new System.Windows.Forms.Label();
             this.totAmountlbl = new System.Windows.Forms.Label();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).BeginInit();
@@ -452,6 +453,10 @@ namespace InventoryManagement
             this.totAmountlbl.TabIndex = 36;
             this.totAmountlbl.Text = "BDT";
             // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
             // ManageOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -522,5 +527,6 @@ namespace InventoryManagement
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn UPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }
