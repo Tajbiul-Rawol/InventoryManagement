@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace InventoryManagement
 {
+
     public partial class Form1 : MetroSetForm
     {
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Tajbiul\Documents\inventorydb.mdf;Integrated Security=True;Connect Timeout=30");
         public Form1()
         {
             InitializeComponent();
@@ -39,6 +42,32 @@ namespace InventoryManagement
         {
             userNameTextBox.Text = string.Empty;
             passwordTextBox.Text = string.Empty;
+        }
+
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            if (userNameTextBox.Text == string.Empty || passwordTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Login fields cannot be empty");
+                return;
+            }
+            
+            connection.Open();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("select Count(*) from UserTable where Uname='" + userNameTextBox.Text + "' and Upassword='" + passwordTextBox.Text + "' ", connection);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            if (dataTable.Rows[0][0].ToString() == "1")
+            {
+                ManageCustomers customers = new ManageCustomers();
+                customers.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Wrong Username and Password");
+            }
+            connection.Close();
+            
         }
     }
 }
