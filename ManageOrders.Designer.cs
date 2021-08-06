@@ -50,18 +50,18 @@ namespace InventoryManagement
             this.viewOrdersBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.insertOrdersBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.ordersGridView = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.quantityTextBox = new System.Windows.Forms.TextBox();
-            this.addToOrderButton = new MetroSet_UI.Controls.MetroSetButton();
-            this.deleteToOrderButton = new MetroSet_UI.Controls.MetroSetButton();
-            this.label10 = new System.Windows.Forms.Label();
-            this.totAmountlbl = new System.Windows.Forms.Label();
             this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.quantityTextBox = new System.Windows.Forms.TextBox();
+            this.addToOrderButton = new MetroSet_UI.Controls.MetroSetButton();
+            this.deleteToOrderButton = new MetroSet_UI.Controls.MetroSetButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.totAmountlbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).BeginInit();
@@ -331,6 +331,36 @@ namespace InventoryManagement
             this.ordersGridView.TabIndex = 30;
             this.ordersGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ordersGridView_CellClick);
             // 
+            // Num
+            // 
+            this.Num.HeaderText = "Num";
+            this.Num.Name = "Num";
+            // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "ProductID";
+            this.ProductID.Name = "ProductID";
+            // 
+            // Product
+            // 
+            this.Product.HeaderText = "Product";
+            this.Product.Name = "Product";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // UPrice
+            // 
+            this.UPrice.HeaderText = "UPrice";
+            this.UPrice.Name = "UPrice";
+            // 
+            // TotalAmount
+            // 
+            this.TotalAmount.HeaderText = "TotalAmount";
+            this.TotalAmount.Name = "TotalAmount";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -420,36 +450,6 @@ namespace InventoryManagement
             this.totAmountlbl.Size = new System.Drawing.Size(48, 25);
             this.totAmountlbl.TabIndex = 36;
             this.totAmountlbl.Text = "BDT";
-            // 
-            // Num
-            // 
-            this.Num.HeaderText = "Num";
-            this.Num.Name = "Num";
-            // 
-            // ProductID
-            // 
-            this.ProductID.HeaderText = "ProductID";
-            this.ProductID.Name = "ProductID";
-            // 
-            // Product
-            // 
-            this.Product.HeaderText = "Product";
-            this.Product.Name = "Product";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // UPrice
-            // 
-            this.UPrice.HeaderText = "UPrice";
-            this.UPrice.Name = "UPrice";
-            // 
-            // TotalAmount
-            // 
-            this.TotalAmount.HeaderText = "TotalAmount";
-            this.TotalAmount.Name = "TotalAmount";
             // 
             // ManageOrders
             // 

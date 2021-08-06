@@ -234,7 +234,39 @@ namespace InventoryManagement
 
         private void insertOrdersBtn_Click(object sender, EventArgs e)
         {
+            if (orderIDTextBox.Text == string.Empty ||
+                customerIDTextBox.Text == string.Empty || 
+                customerNameTextBox.Text == string.Empty ||
+                orderDateTime.Text == string.Empty)
+            {
+                MessageBox.Show("Fields cannot be empty");
+                return;
+            }
+            if (totAmountlbl.Text == "BDT")
+            {
+                MessageBox.Show("Please add products to the Orders list to place an order");
+                return;
+            }
 
+            var query = "insert into OrderTable values('" + orderIDTextBox.Text + "','" + customerIDTextBox.Text + "','" + customerNameTextBox.Text + "','" + Convert.ToDateTime(orderDateTime.Text) + "', '" + totalPrice + "','" + quantity + "')";
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Order Created Successfully");
+            connection.Close();
+            populateCustomerGrid();
+            populateProductGrid();
+        }
+
+
+        private void emptyOrdersGridView()
+        {
+            ordersGridView.AllowUserToAddRows = false;
+
+            for (int row = 0; row < ordersGridView.Rows.Count; row++)
+            {
+                ordersGridView.Rows.Remove(ordersGridView.Rows[row]);
+            }
         }
 
         int row = -1;
