@@ -53,9 +53,9 @@ namespace InventoryManagement
 
         private void populateProductGrid()
         {
+            var query = "select * from ProductTable";
             try
             {
-                var query = "select * from ProductTable";
                 //open connection
                 connection.Open();
                 //create a sql data adapter using the query and connection
@@ -135,6 +135,7 @@ namespace InventoryManagement
                 if (customerIDTextBox.Text != string.Empty)
                 {
                     customerIDTextBox.Enabled = false;
+                    customerNameTextBox.Enabled = false;
                 }
             }
         }
@@ -145,7 +146,10 @@ namespace InventoryManagement
             customerIDTextBox.Text = string.Empty;
             customerNameTextBox.Text = string.Empty;
             orderDateTime.Value = DateTime.Today;
+            quantityTextBox.Text = string.Empty;
             populateCustomerGrid();
+            populateProductGrid();
+            emptyOrdersGridView();
         }
 
 
@@ -196,13 +200,20 @@ namespace InventoryManagement
                         }
                         continue;
                     }
-                    connection.Open();
                     int stockQuantity = stock + Convert.ToInt32(quantityTextBox.Text);                
-                    //MessageBox.Show(stockQuantity.ToString());
                     var query = "update ProductTable set ProductQuantity='" + stockQuantity + "' where ProductId='" + productID + "' ";
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
+                    try
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(query, connection);
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
                     ordersGridView.AllowUserToAddRows = false;
                     ordersGridView.Rows.RemoveAt(selectedRow);
                     row--;
@@ -251,11 +262,19 @@ namespace InventoryManagement
             }
 
             var query = "insert into OrderTable values('" + orderIDTextBox.Text + "','" + customerIDTextBox.Text + "','" + customerNameTextBox.Text + "','" + Convert.ToDateTime(orderDateTime.Text) + "', '" + totalPrice + "','" + totalQuantity + "')";
-            connection.Open();
-            SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Order Created Successfully");
-            connection.Close();
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Order Created Successfully");
+                connection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             populateCustomerGrid();
             populateProductGrid();
         }
@@ -269,6 +288,12 @@ namespace InventoryManagement
             {
                 ordersGridView.Rows.Remove(ordersGridView.Rows[row]);
             }
+        }
+
+        private void viewOrdersBtn_Click(object sender, EventArgs e)
+        {
+            ViewOrders viewOrder = new ViewOrders();
+            viewOrder.Show();
         }
 
         int row = -1;
@@ -307,12 +332,26 @@ namespace InventoryManagement
         int newQuantity = 0;
         private void updateQuantity()
         {
-            connection.Open();
             newQuantity = stock - Convert.ToInt32(quantityTextBox.Text);
+
+            if (newQuantity < 0)
+            {
+                MessageBox.Show("Operation Failed");
+                return;
+            }
             var query = "update ProductTable set ProductQuantity='"+newQuantity+"' where ProductId='"+productID+"' ";
-            SqlCommand cmd = new SqlCommand(query,connection);
-            cmd.ExecuteNonQuery();
-            connection.Close();
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             populateProductGrid();
         }
 

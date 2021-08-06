@@ -285,6 +285,7 @@ namespace InventoryManagement
             this.viewOrdersBtn.Text = "View Orders";
             this.viewOrdersBtn.ThemeAuthor = "Narwin";
             this.viewOrdersBtn.ThemeName = "MetroLite";
+            this.viewOrdersBtn.Click += new System.EventHandler(this.viewOrdersBtn_Click);
             // 
             // insertOrdersBtn
             // 
