@@ -72,5 +72,12 @@ namespace InventoryManagement
             e.Graphics.DrawString("Total Amount: " + viewOrdersGridView.Rows[selectedIndex].Cells[4].Value.ToString(), new Font("Arial", 25, FontStyle.Regular), new SolidBrush(Color.Black), 80.0F, 310.0F);
             e.Graphics.DrawString("Quantity: " + viewOrdersGridView.Rows[selectedIndex].Cells[5].Value.ToString(), new Font("Arial", 25, FontStyle.Regular), new SolidBrush(Color.Black), 80.0F, 350.0F);
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            this.Hide();
+            home.Show();
+        }
     }
 }

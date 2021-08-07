@@ -183,5 +183,12 @@ namespace InventoryManagement
             searchCategoryTextBox.Text = string.Empty;
             populateGrid();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            this.Hide();
+            home.Show();
+        }
     }
 }

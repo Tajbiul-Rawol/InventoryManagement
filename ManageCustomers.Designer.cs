@@ -58,6 +58,7 @@ namespace InventoryManagement
             this.panel5 = new System.Windows.Forms.Panel();
             this.dateLbl = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
@@ -69,6 +70,7 @@ namespace InventoryManagement
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkCyan;
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -436,6 +438,18 @@ namespace InventoryManagement
             this.label13.TabIndex = 4;
             this.label13.Text = "Last Order Date";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label9.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(12, 37);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 30);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Back";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
             // ManageCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -501,5 +515,6 @@ namespace InventoryManagement
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label9;
     }
 }

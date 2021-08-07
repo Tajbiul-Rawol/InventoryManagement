@@ -297,6 +297,14 @@ namespace InventoryManagement
         }
 
         int row = -1;
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            this.Hide();
+            home.Show();
+        }
+
         int sum = 0;
         private void addToOrderButton_Click(object sender, EventArgs e)
         {

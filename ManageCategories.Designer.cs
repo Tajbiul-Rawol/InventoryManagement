@@ -30,6 +30,7 @@ namespace InventoryManagement
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -53,6 +54,7 @@ namespace InventoryManagement
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkCyan;
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -60,6 +62,18 @@ namespace InventoryManagement
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(941, 79);
             this.panel1.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(12, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 30);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Back";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label2
             // 
@@ -267,6 +281,7 @@ namespace InventoryManagement
             // categoryGridView
             // 
             this.categoryGridView.AllowUserToOrderColumns = true;
+            this.categoryGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.categoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.categoryGridView.Location = new System.Drawing.Point(371, 119);
             this.categoryGridView.Name = "categoryGridView";
@@ -333,5 +348,6 @@ namespace InventoryManagement
         private System.Windows.Forms.TextBox searchCategoryTextBox;
         private System.Windows.Forms.Label label5;
         private MetroSet_UI.Controls.MetroSetButton refreshCategoryBtn;
+        private System.Windows.Forms.Label label6;
     }
 }

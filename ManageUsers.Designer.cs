@@ -54,6 +54,7 @@ namespace InventoryManagement
             this.searchUserTextBox = new System.Windows.Forms.TextBox();
             this.searchUserBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
@@ -62,6 +63,7 @@ namespace InventoryManagement
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkCyan;
+            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -398,6 +400,18 @@ namespace InventoryManagement
             this.label8.TabIndex = 14;
             this.label8.Text = "Search User";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label11.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(12, 37);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 30);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Back";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
             // ManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -449,5 +463,6 @@ namespace InventoryManagement
         private System.Windows.Forms.TextBox searchUserTextBox;
         private MetroSet_UI.Controls.MetroSetButton searchUserBtn;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
     }
 }

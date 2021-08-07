@@ -259,5 +259,12 @@ namespace InventoryManagement
                 throw;
             }
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            this.Hide();
+            home.Show();
+        }
     }
 }

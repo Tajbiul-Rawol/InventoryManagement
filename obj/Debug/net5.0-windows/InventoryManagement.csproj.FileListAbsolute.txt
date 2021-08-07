@@ -32,3 +32,4 @@ E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\Invent
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.ManageProducts.resources
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.ManageOrders.resources
 E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.ViewOrders.resources
+E:\InventoryManagementSystem\InventoryManagement\obj\Debug\net5.0-windows\InventoryManagement.Home.resources

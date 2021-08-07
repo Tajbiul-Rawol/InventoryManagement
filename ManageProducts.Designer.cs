@@ -53,6 +53,7 @@ namespace InventoryManagement
             this.searchProductBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.searchProductTextBox = new System.Windows.Forms.TextBox();
             this.productGridView = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).BeginInit();
@@ -61,6 +62,7 @@ namespace InventoryManagement
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkCyan;
+            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -372,6 +374,18 @@ namespace InventoryManagement
             this.productGridView.TabIndex = 18;
             this.productGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productGridView_CellClick);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label11.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(12, 37);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 30);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Back";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
             // ManageProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -423,5 +437,6 @@ namespace InventoryManagement
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox productCategoryComboBox;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
     }
 }
