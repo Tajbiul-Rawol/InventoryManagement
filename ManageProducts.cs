@@ -150,6 +150,7 @@ namespace InventoryManagement
 
         private void refreshProductBtn_Click(object sender, EventArgs e)
         {
+            productIDTextBox.Enabled = true;
             productIDTextBox.Text = string.Empty;
             productNameTextBox.Text = string.Empty;
             productPriceTextBox.Text = string.Empty;

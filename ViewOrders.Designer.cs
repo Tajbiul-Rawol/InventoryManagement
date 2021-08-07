@@ -40,6 +40,7 @@ namespace InventoryManagement
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.searchOrderTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.Refresh = new MetroSet_UI.Controls.MetroSetButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewOrdersGridView)).BeginInit();
             this.SuspendLayout();
@@ -109,7 +110,7 @@ namespace InventoryManagement
             this.searchOrderBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.searchOrderBtn.HoverTextColor = System.Drawing.Color.White;
             this.searchOrderBtn.IsDerivedStyle = true;
-            this.searchOrderBtn.Location = new System.Drawing.Point(563, 97);
+            this.searchOrderBtn.Location = new System.Drawing.Point(506, 97);
             this.searchOrderBtn.Name = "searchOrderBtn";
             this.searchOrderBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.searchOrderBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -143,7 +144,7 @@ namespace InventoryManagement
             // 
             // searchOrderTextBox
             // 
-            this.searchOrderTextBox.Location = new System.Drawing.Point(335, 97);
+            this.searchOrderTextBox.Location = new System.Drawing.Point(282, 97);
             this.searchOrderTextBox.Name = "searchOrderTextBox";
             this.searchOrderTextBox.Size = new System.Drawing.Size(206, 23);
             this.searchOrderTextBox.TabIndex = 30;
@@ -151,17 +152,45 @@ namespace InventoryManagement
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(248, 97);
+            this.label3.Location = new System.Drawing.Point(189, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 15);
             this.label3.TabIndex = 31;
             this.label3.Text = "Search Order";
+            // 
+            // Refresh
+            // 
+            this.Refresh.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.Refresh.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.Refresh.DisabledForeColor = System.Drawing.Color.Gray;
+            this.Refresh.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Refresh.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.Refresh.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.Refresh.HoverTextColor = System.Drawing.Color.White;
+            this.Refresh.IsDerivedStyle = true;
+            this.Refresh.Location = new System.Drawing.Point(610, 97);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.Refresh.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.Refresh.NormalTextColor = System.Drawing.Color.White;
+            this.Refresh.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.Refresh.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.Refresh.PressTextColor = System.Drawing.Color.White;
+            this.Refresh.Size = new System.Drawing.Size(98, 21);
+            this.Refresh.Style = MetroSet_UI.Enums.Style.Light;
+            this.Refresh.StyleManager = null;
+            this.Refresh.TabIndex = 32;
+            this.Refresh.Text = "Refresh";
+            this.Refresh.ThemeAuthor = "Narwin";
+            this.Refresh.ThemeName = "MetroLite";
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // ViewOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 535);
+            this.Controls.Add(this.Refresh);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.searchOrderTextBox);
             this.Controls.Add(this.searchOrderBtn);
@@ -190,5 +219,6 @@ namespace InventoryManagement
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox searchOrderTextBox;
         private System.Windows.Forms.Label label3;
+        private MetroSet_UI.Controls.MetroSetButton Refresh;
     }
 }

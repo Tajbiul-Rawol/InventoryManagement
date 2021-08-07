@@ -72,9 +72,16 @@ namespace InventoryManagement
 
         private void label11_Click(object sender, EventArgs e)
         {
-            Home home = new Home();
-            this.Hide();
-            home.Show();
+            var formToShow = Application.OpenForms.Cast<Form>().FirstOrDefault(c => c is ManageOrders);
+            if (formToShow != null)
+            {
+                formToShow.Show();
+                this.Hide();
+                return;
+            }
+                Home home = new Home();
+                this.Hide();
+                home.Show();
         }
 
         private void searchOrderBtn_Click(object sender, EventArgs e)
@@ -107,6 +114,12 @@ namespace InventoryManagement
 
                 throw;
             }
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            searchOrderTextBox.Text = string.Empty;
+            populateViewOrdersGrid();
         }
     }
 }
