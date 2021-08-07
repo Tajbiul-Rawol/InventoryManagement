@@ -58,9 +58,10 @@ namespace InventoryManagement
             dataAdapter.Fill(dataTable);
             if (dataTable.Rows[0][0].ToString() == "1")
             {
-                ManageCustomers customers = new ManageCustomers();
-                customers.Show();
+                Home dashboard = new Home();
                 this.Hide();
+                dashboard.Show();
+                
             }
             else
             {

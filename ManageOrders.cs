@@ -247,6 +247,7 @@ namespace InventoryManagement
 
         private void insertOrdersBtn_Click(object sender, EventArgs e)
         {
+            progressBar.Maximum = 100;
             if (orderIDTextBox.Text == string.Empty ||
                 customerIDTextBox.Text == string.Empty || 
                 customerNameTextBox.Text == string.Empty ||
@@ -267,7 +268,28 @@ namespace InventoryManagement
                 connection.Open();
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
+                for (int progress = 0; progress < 100; progress += 5)
+                {
+                    if (progressBar.Value <= 100)
+                    {
+                        try
+                        {
+                            progressBar.Value = progress;
+                        }
+                        catch (IndexOutOfRangeException)
+                        {
+
+                            MessageBox.Show("out of range");
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                progressBar.Value = 100;
                 MessageBox.Show("Order Created Successfully");
+                progressBar.Value = 0;
                 connection.Close();
             }
             catch (Exception)

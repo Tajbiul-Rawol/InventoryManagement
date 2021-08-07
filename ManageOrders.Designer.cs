@@ -30,6 +30,7 @@ namespace InventoryManagement
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,7 +64,7 @@ namespace InventoryManagement
             this.label10 = new System.Windows.Forms.Label();
             this.totAmountlbl = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.label11 = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).BeginInit();
@@ -82,6 +83,18 @@ namespace InventoryManagement
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(890, 79);
             this.panel1.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label11.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(12, 37);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 30);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Back";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label2
             // 
@@ -459,23 +472,19 @@ namespace InventoryManagement
             // 
             this.printDialog1.UseEXDialog = true;
             // 
-            // label11
+            // progressBar
             // 
-            this.label11.AutoSize = true;
-            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label11.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(12, 37);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 30);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Back";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
+            this.progressBar.Location = new System.Drawing.Point(12, 553);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(200, 23);
+            this.progressBar.TabIndex = 37;
             // 
             // ManageOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 582);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.totAmountlbl);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.deleteToOrderButton);
@@ -543,5 +552,6 @@ namespace InventoryManagement
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

@@ -9,7 +9,7 @@ namespace InventoryManagement
     public class ProgressReport
     {
         public int PercentComplete { get; set; }
-        //public List<string> Resources { get; set; }
+        public List<string> Resources { get; set; }
 
     }
 }
