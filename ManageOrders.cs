@@ -272,15 +272,7 @@ namespace InventoryManagement
                 {
                     if (progressBar.Value <= 100)
                     {
-                        try
-                        {
-                            progressBar.Value = progress;
-                        }
-                        catch (IndexOutOfRangeException)
-                        {
-
-                            MessageBox.Show("out of range");
-                        }
+                         progressBar.Value = progress;
                     }
                     else
                     {
