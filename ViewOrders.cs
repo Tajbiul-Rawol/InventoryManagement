@@ -25,12 +25,9 @@ namespace InventoryManagement
             var query = "select * from OrderTable";
             try
             {
-                //open connection
                 connection.Open();
-                //create a sql data adapter using the query and connection
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
                 SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(dataAdapter);
-                //create a dataset
                 var dataSet = new DataSet();
                 dataAdapter.Fill(dataSet);
                 viewOrdersGridView.DataSource = dataSet.Tables[0];
@@ -78,6 +75,38 @@ namespace InventoryManagement
             Home home = new Home();
             this.Hide();
             home.Show();
+        }
+
+        private void searchOrderBtn_Click(object sender, EventArgs e)
+        {
+            if (searchOrderTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Search by Name or ID must be in the search field");
+                return;
+            }
+
+            try
+            {
+                var query = "select * from OrderTable where OrderId like '%" + searchOrderTextBox.Text + "%' or CustName like '%" + searchOrderTextBox.Text + "%'  or OrderDate like '%" + searchOrderTextBox.Text + "%'";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+                var dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                if (dataSet.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("Order not Found");
+                    return;
+                }
+                viewOrdersGridView.DataSource = dataSet.Tables[0];
+                connection.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

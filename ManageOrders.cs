@@ -245,6 +245,7 @@ namespace InventoryManagement
 
         }
 
+
         private void insertOrdersBtn_Click(object sender, EventArgs e)
         {
             progressBar.Maximum = 100;

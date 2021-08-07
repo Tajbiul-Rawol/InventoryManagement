@@ -31,13 +31,15 @@ namespace InventoryManagement
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewOrders));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.viewOrdersGridView = new System.Windows.Forms.DataGridView();
-            this.viewOrdersBtn = new MetroSet_UI.Controls.MetroSetButton();
+            this.searchOrderBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.label11 = new System.Windows.Forms.Label();
+            this.searchOrderTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewOrdersGridView)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +55,18 @@ namespace InventoryManagement
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 79);
             this.panel1.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label11.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(12, 37);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 30);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Back";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label2
             // 
@@ -78,38 +92,39 @@ namespace InventoryManagement
             // 
             this.viewOrdersGridView.AllowUserToOrderColumns = true;
             this.viewOrdersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.viewOrdersGridView.Location = new System.Drawing.Point(116, 96);
+            this.viewOrdersGridView.Location = new System.Drawing.Point(168, 126);
             this.viewOrdersGridView.Name = "viewOrdersGridView";
             this.viewOrdersGridView.RowTemplate.Height = 25;
             this.viewOrdersGridView.Size = new System.Drawing.Size(560, 365);
             this.viewOrdersGridView.TabIndex = 28;
             this.viewOrdersGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.viewOrdersGridView_CellClick);
             // 
-            // viewOrdersBtn
+            // searchOrderBtn
             // 
-            this.viewOrdersBtn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.viewOrdersBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.viewOrdersBtn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.viewOrdersBtn.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.viewOrdersBtn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.viewOrdersBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.viewOrdersBtn.HoverTextColor = System.Drawing.Color.White;
-            this.viewOrdersBtn.IsDerivedStyle = true;
-            this.viewOrdersBtn.Location = new System.Drawing.Point(335, 487);
-            this.viewOrdersBtn.Name = "viewOrdersBtn";
-            this.viewOrdersBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.viewOrdersBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.viewOrdersBtn.NormalTextColor = System.Drawing.Color.White;
-            this.viewOrdersBtn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.viewOrdersBtn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.viewOrdersBtn.PressTextColor = System.Drawing.Color.White;
-            this.viewOrdersBtn.Size = new System.Drawing.Size(98, 21);
-            this.viewOrdersBtn.Style = MetroSet_UI.Enums.Style.Light;
-            this.viewOrdersBtn.StyleManager = null;
-            this.viewOrdersBtn.TabIndex = 29;
-            this.viewOrdersBtn.Text = "View Orders";
-            this.viewOrdersBtn.ThemeAuthor = "Narwin";
-            this.viewOrdersBtn.ThemeName = "MetroLite";
+            this.searchOrderBtn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchOrderBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchOrderBtn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.searchOrderBtn.Font = new System.Drawing.Font("Segoe WP Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.searchOrderBtn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.searchOrderBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.searchOrderBtn.HoverTextColor = System.Drawing.Color.White;
+            this.searchOrderBtn.IsDerivedStyle = true;
+            this.searchOrderBtn.Location = new System.Drawing.Point(563, 97);
+            this.searchOrderBtn.Name = "searchOrderBtn";
+            this.searchOrderBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchOrderBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.searchOrderBtn.NormalTextColor = System.Drawing.Color.White;
+            this.searchOrderBtn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.searchOrderBtn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.searchOrderBtn.PressTextColor = System.Drawing.Color.White;
+            this.searchOrderBtn.Size = new System.Drawing.Size(98, 21);
+            this.searchOrderBtn.Style = MetroSet_UI.Enums.Style.Light;
+            this.searchOrderBtn.StyleManager = null;
+            this.searchOrderBtn.TabIndex = 29;
+            this.searchOrderBtn.Text = "Search";
+            this.searchOrderBtn.ThemeAuthor = "Narwin";
+            this.searchOrderBtn.ThemeName = "MetroLite";
+            this.searchOrderBtn.Click += new System.EventHandler(this.searchOrderBtn_Click);
             // 
             // printDocument1
             // 
@@ -126,24 +141,30 @@ namespace InventoryManagement
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // label11
+            // searchOrderTextBox
             // 
-            this.label11.AutoSize = true;
-            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label11.Font = new System.Drawing.Font("Segoe WP", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(12, 37);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 30);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Back";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
+            this.searchOrderTextBox.Location = new System.Drawing.Point(335, 97);
+            this.searchOrderTextBox.Name = "searchOrderTextBox";
+            this.searchOrderTextBox.Size = new System.Drawing.Size(206, 23);
+            this.searchOrderTextBox.TabIndex = 30;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(248, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 15);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Search Order";
             // 
             // ViewOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 535);
-            this.Controls.Add(this.viewOrdersBtn);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.searchOrderTextBox);
+            this.Controls.Add(this.searchOrderBtn);
             this.Controls.Add(this.viewOrdersGridView);
             this.Controls.Add(this.panel1);
             this.Name = "ViewOrders";
@@ -153,6 +174,7 @@ namespace InventoryManagement
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewOrdersGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -162,9 +184,11 @@ namespace InventoryManagement
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView viewOrdersGridView;
-        private MetroSet_UI.Controls.MetroSetButton viewOrdersBtn;
+        private MetroSet_UI.Controls.MetroSetButton searchOrderBtn;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox searchOrderTextBox;
+        private System.Windows.Forms.Label label3;
     }
 }

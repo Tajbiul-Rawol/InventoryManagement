@@ -23,7 +23,7 @@ namespace InventoryManagement
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+                
         }
 
         private void showPasswordCheckbox_CheckedChanged(object sender)
